@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+    
+<!--
+Copyright RSAA, The Korean Astronomy and Space Sciend Institue
+
+The Igrins2 instrument. 
+ Project partners:
+    The Gemini Observatory (Gemini, AURA)
+-->
+
+<Channels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="giapi-epics-status-mapping.xsd">
+        
+       
+
+  <HealthChannel>
+    <giapiname>sad.health</giapiname>
+    <epicsname>sad.health</epicsname>
+  </HealthChannel>
+  <SimpleChannel>
+    <giapiname>sad.health_msg</giapiname>
+    <epicsname>sad.health_msg</epicsname>
+    <type>STRING</type>
+    <initial></initial>
+  </SimpleChannel>
+  <SimpleChannel>
+    <giapiname>sad:detk:temp</giapiname>
+    <epicsname>sad:detk:temp</epicsname>
+    <type>FLOAT</type>
+    <initial>0</initial>
+  </SimpleChannel>
+  <SimpleChannel>
+    <giapiname>sad:deth:temp</giapiname>
+    <epicsname>sad:deth:temp</epicsname>
+    <type>FLOAT</type>
+    <initial>0</initial>
+  </SimpleChannel>
+
+  <SimpleChannel>
+    <giapiname>sad:heartbeat</giapiname>
+    <epicsname>sad:heartbeat</epicsname>
+    <type>INT</type>
+    <initial>0</initial>
+  </SimpleChannel>
+</Channels>
+        
