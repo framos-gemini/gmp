@@ -36,6 +36,7 @@ jobs:
           release_name: Release ${{ github.ref }}
           draft: false
           prerelease: false
+          allowUpdates: "true"
       - name: Rename rpm
         run: |
           cp distribution/target/rpm/gmp-server/RPMS/noarch/*.rpm gmp-server-${{ github.ref_name }}.rpm
