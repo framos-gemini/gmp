@@ -10,8 +10,6 @@ The Igrins2 instrument.
 
 <Channels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="giapi-epics-status-mapping.xsd">
-        
-       
 
   <HealthChannel>
     <giapiname>sad.health</giapiname>
