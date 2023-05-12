@@ -12,18 +12,30 @@ set -u # Don't allow using non defined variables
 PAX_RUNNER_VERSION=${pax-runner.version}
 GMP_VERSION=${gmp.version}
 
-# The gmp needs a java8 VM
-JAVA8=$JAVA8_HOME/bin/java
-# Overrides locally JAVA_HOME
-JAVA_HOME=$JAVA8_HOME
-
+# Overrides locally JAVA_HOME to use java 8
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0
+JAVA8=$JAVA_HOME/bin/java
 #
 # Confirm that java is available
 which $JAVA8 > /dev/null || { echo "Need java in PATH to run"; exit 1; }
 
+# Verify existing variables
+if [ -z ${GMP_ROOT:-} ]; then
+    tmp=`pwd`
+    GMP_ROOT="${tmp%/*}"
+    echo "GMP_ROOT not set. Using $GMP_ROOT"
+fi
+if ! [ -d $GMP_ROOT ]; then
+    echo "$GMP_ROOT directory not found"
+    exit -1
+fi
+if [ -z "${HOME:-}" ]; then
+    HOME=$GMP_ROOT
+fi
+
 # App variables
 app_name=gmp-server
-app_root=${GMP_ROOT}/gmp-server-$GMP_VERSION
+app_root=${GMP_ROOT}
 pid_file=${app_root}/bin/${app_name}.pid
 log_dir=${app_root}/logs/
 log_file=${log_dir}/${app_name}.out
@@ -98,6 +110,7 @@ function stopContainer() {
       sleep 1
       if [[ "$counter" -gt 25 ]]; then
         echo "Taking too long to die, forced to kill"
+        jstack -l "$pid" > $HOME/.pax/dump_${pid}
         kill -9 "$pid"
         sleep 5
       fi
@@ -110,7 +123,6 @@ function stopContainer() {
     echo "${app_name} not running"
   fi
 }
-
 
 #
 # Kill the GMP process
