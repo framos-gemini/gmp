@@ -12,22 +12,18 @@ set -u # Don't allow using non defined variables
 PAX_RUNNER_VERSION=${pax-runner.version}
 GMP_VERSION=${gmp.version}
 
-# Confirm that java is available
-which java > /dev/null || { echo "Need java in PATH to run"; exit 1; }
+# The gmp needs a java8 VM
+JAVA8=$JAVA8_HOME/bin/java
+# Overrides locally JAVA_HOME
+JAVA_HOME=$JAVA8_HOME
 
-# Verify existing variables
-if [ -z ${GPI_ROOT:-} ]; then
-    GPI_ROOT=/gemsoft/opt/gpi/
-    echo "GPI_ROOT not set. Using $GPI_ROOT"
-fi
-if ! [ -d $GPI_ROOT ]; then
-    echo "$GPI_ROOT directory not found"
-    exit -1
-fi
+#
+# Confirm that java is available
+which $JAVA8 > /dev/null || { echo "Need java in PATH to run"; exit 1; }
 
 # App variables
 app_name=gmp-server
-app_root=${GPI_ROOT}/gmp-server-$GMP_VERSION
+app_root=${GMP_ROOT}/gmp-server-$GMP_VERSION
 pid_file=${app_root}/bin/${app_name}.pid
 log_dir=${app_root}/logs/
 log_file=${log_dir}/${app_name}.out
@@ -74,7 +70,7 @@ function startContainer() {
         echo "Starting ${app_name} version $GMP_VERSION"
         # Will start pax-runner as a daemon reading the configuration from the file bin/runner.args
         pushd ${app_root}/bin > /dev/null;
-        java -cp ${app_root}/bin/pax-runner-${PAX_RUNNER_VERSION}.jar org.ops4j.pax.runner.daemon.DaemonLauncher --startd &> ${log_file}
+        $JAVA8 -cp ${app_root}/bin/pax-runner-${PAX_RUNNER_VERSION}.jar org.ops4j.pax.runner.daemon.DaemonLauncher --startd &> ${log_file}
         wait $!
         sleep 4
         popd > /dev/null
@@ -95,7 +91,7 @@ function startContainer() {
 function stopContainer() {
   if [ ! -z ${pid_isrunning} ]; then
     echo "Stopping ${app_name} with pid ${pid}"
-    java -cp ${app_root}/bin/pax-runner-${PAX_RUNNER_VERSION}.jar org.ops4j.pax.runner.daemon.DaemonLauncher --stop
+    $JAVA8 -cp ${app_root}/bin/pax-runner-${PAX_RUNNER_VERSION}.jar org.ops4j.pax.runner.daemon.DaemonLauncher --stop
     counter=0
     while kill -0 "$pid" 2> /dev/null; do
       counter=$((counter+1))

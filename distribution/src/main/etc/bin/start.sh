@@ -38,4 +38,4 @@ SCRIPT_PATH=`dirname "$ABSPATH"`
 
 echo "Starting GMP version: ${gmp.version}"
 # Will start pax-runner reading the configuration from the file bin/runner.args
-exec java -jar $SCRIPT_PATH/pax-runner-${pax-runner.version}.jar --args=file:$SCRIPT_PATH/runner.args
+exec java -jar $SCRIPT_PATH/pax-runner-${pax-runner.version}.jar
