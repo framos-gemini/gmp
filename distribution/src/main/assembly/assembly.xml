@@ -12,7 +12,6 @@
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <outputDirectory>/bin</outputDirectory>
-            <fileMode>0755</fileMode>
             <includes>
                 <include>org.ops4j.pax.runner:*</include>
             </includes>
@@ -79,7 +78,6 @@
         </fileSet>
         <fileSet>
             <directory>src/main/etc/bin</directory>
-            <fileMode>0755</fileMode>
             <outputDirectory>/bin</outputDirectory>
             <filtered>true</filtered>
             <includes>
@@ -93,11 +91,9 @@
             <directory>../instances/${gmp.instance}/src/main/etc/bin</directory>
             <outputDirectory>/bin</outputDirectory>
             <filtered>true</filtered>
-            <fileMode>0755</fileMode>
         </fileSet>
         <fileSet>
             <directory>../giapi-tester/src/main/etc/bin</directory>
-            <fileMode>0755</fileMode>
             <outputDirectory>/bin</outputDirectory>
             <includes>
                 <include>giapi-tester.sh</include>
@@ -106,7 +102,6 @@
         <fileSet>
             <directory>../giapi-tester/target/</directory>
             <outputDirectory>/bin</outputDirectory>
-            <fileMode>0755</fileMode>
             <includes>
                 <include>giapi-tester.jar</include>
             </includes>
@@ -142,7 +137,6 @@
         <fileSet>
             <directory>src/main/doc</directory>
             <outputDirectory>/</outputDirectory>
-            <fileMode>0755</fileMode>
             <filtered>true</filtered>
             <includes>
                 <include>*.txt</include>
@@ -151,7 +145,6 @@
         <fileSet>
             <directory>src/main/doc</directory>
             <outputDirectory>/</outputDirectory>
-            <fileMode>0755</fileMode>
             <filtered>true</filtered>
             <includes>
                 <include>README</include>
