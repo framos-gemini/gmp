@@ -106,6 +106,7 @@
         <fileSet>
             <directory>../giapi-tester/target/</directory>
             <outputDirectory>/bin</outputDirectory>
+            <fileMode>0755</fileMode>
             <includes>
                 <include>giapi-tester.jar</include>
             </includes>
