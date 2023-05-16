@@ -12,7 +12,7 @@
         <dependencySet>
             <useProjectArtifact>false</useProjectArtifact>
             <outputDirectory>/bin</outputDirectory>
-            <fileMode>0644</fileMode>
+            <fileMode>0755</fileMode>
             <includes>
                 <include>org.ops4j.pax.runner:*</include>
             </includes>
@@ -141,7 +141,7 @@
         <fileSet>
             <directory>src/main/doc</directory>
             <outputDirectory>/</outputDirectory>
-            <fileMode>0644</fileMode>
+            <fileMode>0755</fileMode>
             <filtered>true</filtered>
             <includes>
                 <include>*.txt</include>
@@ -150,7 +150,7 @@
         <fileSet>
             <directory>src/main/doc</directory>
             <outputDirectory>/</outputDirectory>
-            <fileMode>0644</fileMode>
+            <fileMode>0755</fileMode>
             <filtered>true</filtered>
             <includes>
                 <include>README</include>
