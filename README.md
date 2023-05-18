@@ -2,8 +2,9 @@
 The GIAPI concept was developed by GEMINI to facilitate the interaction between the Telescope and the instrument software. Thanks to GIAPI, instrument developers do not need to know in detail the GEMINI Telescope Control System. They only need to deploy the GMP (Gemini Master Process) and incorporate GIAPI-GLUE in their source code to be able to communicate with the Telescope. 
 
 The GMP (Gemini Master Process) is a component provided by Gemini that provides most of the Gemini integration features and functionalities. It basically transforms messages sent through the GIAPI-GLUE to the Telescope system components. The language-specific glue is the API layer used by the builder to implement the integration functionality.  For more details of the GMP and GIAPI-GLUE it is recommended to read the documents "GIAPI Design and Use" and "GIAPI C++ Language Glue API". The below image depicts a Simple Instrument architecture to communicate with the Telescope.
-
+<p align="center">
 ![alt text](images/SimpleGMPArhictecture.jpg?raw=true "Simple Instrument Architecture")
+</p>
 
 # Desployment from binaries. 
 It is possible deploying the GMP and GIAPI-GLUEc++ from their binaries. Gemini recommend uses Rocky 8 or Centos 7 because these are the Operating Systems supported by GEMINI and for which the GIAPI-GLUEc++ binaries have been compiled. 
