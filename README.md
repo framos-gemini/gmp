@@ -52,8 +52,8 @@ Open a terminal or console to execute the following commands.
 > cd gmp-server-0.2.0/bin
 > java -jar giapi-tester.jar -sc OBSERVE -activity START -config DATA_LABEL=S11172022S001.fits
 ```
+When you execute the last command you will see in the any-command standard output the following traces:
 <pre><code>
-    When you execute the last command you will see in the any-command standard output the following traces:
       {DATA_LABEL : S11172022S001.fits}
       Starting worker thread for 3
       Worker Thread started!
