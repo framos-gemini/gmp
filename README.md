@@ -22,12 +22,12 @@ If you are on Rocky 8, you could use the following commands:
 * dnf -y group install "Development Tools"
 
 ## Deployment instructions. 
-This section describes the instructions for deploying the GMP and [any-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/any-command.cpp) example implemented in GIAPI-GLUE. The any-command is an example created by Gemini where developers can see how to implement a command subscriber using the GIAPI-GLUEcc library. Then, we are going to use the giapi-tester to send a command to the any-command example, emulating how a client of the system could send a command to a subscriber. There are more examples in the [src/examples](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples) folder of the GIAPI-GLUEcc repository. 
+This section describes the instructions for deploying the GMP and two examples ([any-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/any-command.cpp) and [apply-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/apply-command.cpp) implemented in GIAPI-GLUE. Then, we are going to use the giapi-tester to send a command to both examples, emulating how a client of the system could send a command to a subscriber. There are more examples in the [src/examples](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples) folder of the GIAPI-GLUEcc repository where developers can see how to implement a command subscriber using the GIAPI-GLUE c++ library.  
 
-For this example, the GMP and the any-command example will be deployed on the same machine. If you need deploy them on different machines, you have to modify the gmp.properties which are located in the src/examples folder. 
+For this example, the GMP, the any-command and the apply-command will be deployed on the same machine. If you need deploy them on different machines, you have to modify the gmp.properties which are located in the src/examples folder. 
 
 
-### Deployment GMP
+### GMP deployment
 Open a terminal or console to execute the following commands. 
 ```
 > tar -xzvf gmp-server-igrins2-v0.2.0.tar.gz
@@ -35,8 +35,7 @@ Open a terminal or console to execute the following commands.
 > ./bin/gmp-server-ctl.sh start
 ```
 
-### Observe Command Example
-#### Deployment any-command (GIAPI-GLUE example)
+### Any-command (GIAPI-GLUE example) deployment
 Open a terminal or console to execute the following commands. 
 ```
 > tar -xzvf giapi-gluecc_rocky8.tar.gz
@@ -46,7 +45,16 @@ Open a terminal or console to execute the following commands.
 > If you deployed the GMP on other server or machine, you have to edit the gmp.properties file and specifying the IP or hostname of the server where the GMP was deployed (modify the gmp.hostname field)
 > ./any-command
 ```
-#### GIAPI-TESTER
+### Apply Command Example
+Open a terminal or console to execute the following commands. 
+```
+> source defineGiapiglueEnv.sh
+> cd src/examples
+> If you deployed the GMP on other server or machine, you have to edit the gmp.properties file and specifying the IP or hostname of the server where the GMP was deployed (modify the gmp.hostname field)
+> ./apply-command
+```
+
+### GIAPI-TESTER (Observe Command)
 Open a terminal or console to execute the following commands. 
 ```
 > cd gmp-server-0.2.0/bin
@@ -60,18 +68,7 @@ When you execute the last command you will see in the any-command standard outpu
    Messages processed = 0
 </code></pre>
 
-### Apply Command Example
-#### Deployment apply-command (GIAPI-GLUE example)
-If you deployed the above example, it is not necessary to execute the first three commands below. 
-```
-> tar -xzvf giapi-gluecc_rocky8.tar.gz
-> cd giapi-gluecc
-> source defineGiapiglueEnv.sh
-> cd src/examples
-> If you deployed the GMP on other server or machine, you have to edit the gmp.properties file and specifying the IP or hostname of the server where the GMP was deployed (modify the gmp.hostname field)
-> ./any-command
-```
-#### GIAPI-TESTER
+#### GIAPI-TESTER (Apply Command)
 Open a terminal or console to execute the following commands. 
 ```
 > cd gmp-server-0.2.0/bin
