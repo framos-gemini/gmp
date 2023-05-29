@@ -22,7 +22,7 @@ If you are on Rocky 8, you could use the following commands:
 * dnf -y group install "Development Tools"
 
 ## Deployment instructions. 
-This section describes the instructions for deploying the GMP and [any-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/any-command.cpp) example implemented in GIAPI-GLUE. The any-command is an example created by GEMINI where developers can see how to implement a command subscriber using the GIAPI-GLUEcc library. Then, we are going to use the giapi-tester to send a command to the any-command example, emulating how any client of the system could send a command to a subscriber. There are more examples in the [src/examples](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples) folder of the GIAPI-GLUEcc repository. 
+This section describes the instructions for deploying the GMP and [any-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/any-command.cpp) example implemented in GIAPI-GLUE. The any-command is an example created by GEMINI where developers can see how to implement a command subscriber using the GIAPI-GLUEcc library. Then, we are going to use the giapi-tester to send a command to the any-command example, emulating how a client of the system could send a command to a subscriber. There are more examples in the [src/examples](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples) folder of the GIAPI-GLUEcc repository. 
 
 For this example, the GMP and the any-command example will be deployed on the same machine. If you need deploy them on different machines, you have to modify the gmp.properties which are located in the src/examples folder. 
 
