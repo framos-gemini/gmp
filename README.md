@@ -1,16 +1,16 @@
 # GIAPI OVERVIEW
-The GIAPI concept was developed by GEMINI to facilitate the interaction between the Telescope and the instrument software. Thanks to GIAPI, instrument developers do not need to know in detail the GEMINI Telescope Control System. They only need to deploy the GMP (Gemini Master Process) and incorporate GIAPI-GLUE in their source code to be able to communicate with the Telescope. 
+The GIAPI concept was developed by Gemini to facilitate the interaction between the Telescope and the instrument software. Thanks to GIAPI, instrument developers do not need to know in detail the Gemini Telescope Control System. They only need to deploy the GMP (Gemini Master Process) and incorporate GIAPI-GLUE in their source code to be able to communicate with the Telescope. 
 
-The GMP (Gemini Master Process) is a component provided by Gemini that provides most of the Gemini integration features and functionalities. It basically transforms messages sent through the GIAPI-GLUE to the Telescope system components. The language-specific glue is the API layer used by the builder to implement the integration functionality.  For more details of the GMP and GIAPI-GLUE it is recommended to read the documents "GIAPI Design and Use" and "GIAPI C++ Language Glue API". The below image depicts a Simple Instrument architecture to communicate with the Telescope.
+The GMP (Gemini Master Process) is a component provided by Gemini that provides most of the Gemini integration features and functionalities. It basically transforms messages sent through the GIAPI-GLUE to the Telescope system components. The language-specific glue is the API layer used by the builder to implement the integration functionality.  For more details of the GMP and GIAPI-GLUE it is recommended to read the documents "GIAPI Design and Use" and "GIAPI C++ Language Glue API". The image below depicts a Simple Instrument architecture to communicate with the Telescope.
 
 <p align="center">
 <img  align="center" src="https://raw.githubusercontent.com/gemini-hlsw/gmp/igrins2/images/SimpleGMPArhictecture.jpg">
 </p>
 
 # Desployment from binaries. 
-It is possible deploying the GMP and GIAPI-GLUEc++ from their binaries. Gemini recommend uses Rocky 8 or Centos 7 because these are the Operating Systems supported by GEMINI and for which the GIAPI-GLUEc++ binaries have been compiled. 
+It is possible to deploy the GMP and GIAPI-GLUE c++ from their binaries. Currently, Rocky 8 or Centos 7 are the Operating System supported by Gemini and the GIAPI-GLUE c++ binaries have been compiled on these platforms. 
 
-If you want to deploy the system in other platform, you should compile the external libraries of the [GIAPI-GLUEc++](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/external) for you platform. In the previous link is decribed the instrucction executed by GEMINI to CENTOS7 and ROCKY8.
+If you want to deploy the system on other platform, you will need to compile the external libraries ([GIAPI-GLUE c++](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/external)) for your platform.
 
 ## Dependencies 
 The only dependencies we need for GMP and GIAPI-glue are as follows.
@@ -22,7 +22,7 @@ If you are on Rocky 8, you could use the following commands:
 * dnf -y group install "Development Tools"
 
 ## Deployment instructions. 
-This section describes the instructions for deploying the GMP and [any-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/any-command.cpp) example implemented in GIAPI-GLUE. The any-command is an example created by GEMINI where developers can see how to implement a command subscriber using the GIAPI-GLUEcc library. Then, we are going to use the giapi-tester to send a command to the any-command example, emulating how any client of the system could send a command to a subscriber. There are more examples in the [src/examples](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples) folder of the GIAPI-GLUEcc repository. 
+This section describes the instructions for deploying the GMP and [any-command](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples/any-command.cpp) example implemented in GIAPI-GLUE. The any-command is an example created by Gemini where developers can see how to implement a command subscriber using the GIAPI-GLUEcc library. Then, we are going to use the giapi-tester to send a command to the any-command example, emulating how a client of the system could send a command to a subscriber. There are more examples in the [src/examples](https://github.com/gemini-hlsw/giapi-glue-cc/tree/develop/src/examples) folder of the GIAPI-GLUEcc repository. 
 
 For this example, the GMP and the any-command example will be deployed on the same machine. If you need deploy them on different machines, you have to modify the gmp.properties which are located in the src/examples folder. 
 
@@ -35,7 +35,8 @@ Open a terminal or console to execute the following commands.
 > ./bin/gmp-server-ctl.sh start
 ```
 
-### Deployment any-command (GIAPI-GLUE example)
+### Observe Command Example
+#### Deployment any-command (GIAPI-GLUE example)
 Open a terminal or console to execute the following commands. 
 ```
 > tar -xzvf giapi-gluecc_rocky8.tar.gz
@@ -45,8 +46,7 @@ Open a terminal or console to execute the following commands.
 > If you deployed the GMP on other server or machine, you have to edit the gmp.properties file and specifying the IP or hostname of the server where the GMP was deployed (modify the gmp.hostname field)
 > ./any-command
 ```
-
-### GIAPI-TESTER
+#### GIAPI-TESTER
 Open a terminal or console to execute the following commands. 
 ```
 > cd gmp-server-0.2.0/bin
@@ -54,12 +54,35 @@ Open a terminal or console to execute the following commands.
 ```
 When you execute the last command you will see in the any-command standard output the following traces:
 <pre><code>
-      {DATA_LABEL : S11172022S001.fits}
-      Starting worker thread for 3
-      Worker Thread started!
-      Messages processed = 0
+{DATA_LABEL : S11172022S001.fits}
+   Starting worker thread for 3
+   Worker Thread started!
+   Messages processed = 0
 </code></pre>
 
+### Apply Command Example
+#### Deployment apply-command (GIAPI-GLUE example)
+If you deployed the above example, it is not necessary to execute the first three commands below. 
+```
+> tar -xzvf giapi-gluecc_rocky8.tar.gz
+> cd giapi-gluecc
+> source defineGiapiglueEnv.sh
+> cd src/examples
+> If you deployed the GMP on other server or machine, you have to edit the gmp.properties file and specifying the IP or hostname of the server where the GMP was deployed (modify the gmp.hostname field)
+> ./any-command
+```
+#### GIAPI-TESTER
+Open a terminal or console to execute the following commands. 
+```
+> cd gmp-server-0.2.0/bin
+> java -jar giapi-tester.jar -sc APPLY -activity PRESET -config "gpi:dc:setExpTime=1.634"
+```
+When you execute the last command you will see in the any-command standard output the following traces:
+<pre><code>
+Configuration
+{gpi:dc:setExpTime : 1.634}
+Response to caller 0
+</code></pre>
 
 # Build GMP from source code and deploy locally
 ## Requirements
