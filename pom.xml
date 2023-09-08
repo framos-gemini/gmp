@@ -30,9 +30,9 @@
         <logs.dir>logs</logs.dir>
         <felix.cm.loglevel>1</felix.cm.loglevel>
         <felix.log.level>0</felix.log.level>
-        <felix.fileinstall.log.level>1</felix.fileinstall.log.level>
+        <felix.fileinstall.log.level>3</felix.fileinstall.log.level>
         <felix.fileinstall.noInitialDelay>true</felix.fileinstall.noInitialDelay>
-        <org.ops4j.pax.logging.DefaultServiceLog.level>WARN</org.ops4j.pax.logging.DefaultServiceLog.level>
+        <org.ops4j.pax.logging.DefaultServiceLog.level>INFO</org.ops4j.pax.logging.DefaultServiceLog.level>
 
         <!-- Configuration dir -->
         <conf.base>../src/main/config</conf.base>
@@ -349,6 +349,11 @@
             <dependency>
                 <groupId>edu.gemini.aspen.gmp</groupId>
                 <artifactId>gmp-tcs-context</artifactId>
+                <version>0.3.16-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+                <groupId>edu.gemini.aspen.gmp</groupId>
+                <artifactId>gmp-tcs-offset</artifactId>
                 <version>0.3.16-SNAPSHOT</version>
             </dependency>
             <dependency>
@@ -899,6 +904,7 @@
         <module>gmp-commands-jms-client</module>
         <module>gmp-services</module>
         <module>gmp-pcs-updater</module>
+        <module>gmp-tcs-offset</module>
         <module>gmp-status-gateway</module>
         <module>gmp-statusdb</module>
         <module>gmp-epics-access</module>

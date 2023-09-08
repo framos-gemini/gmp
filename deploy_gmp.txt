@@ -1,0 +1,390 @@
+    1  ls /mnt/
+    2  mkdir /mnt/igrings2
+    3  chmod 777 /tmp/igrings2
+    4  ls /mnt/
+    5  mkdir /mnt/igrings2/
+    6  chmod 777 /mnt/igrings2/
+    7  sudo su
+    8  ls /mtn
+    9  ls /mnt/
+   10  ls /mnt/igrings2/
+   11  ls /mnt
+   12  sudo su
+   13  cd gmp_carlos/
+   14  ls
+   15  ls -ltrh
+   16  cd gmp-repo/
+   17  touch a
+   18  rm a 
+   19  ls
+   20  touch a
+   21  rm a
+   22  ls
+   23  ls gmp-tcs-offset/
+   24  ls
+   25  pwd
+   26  ls
+   27  history | grep mvn
+   28  mvn -Dmaven.test.skip=false install
+   29  mvmvn -Dmaven.test.skip=false install
+   30  mvn -Dmaven.test.skip=false install
+   31  mvn -Dmaven.test.skip=true install
+   32  mvn pax:run
+   33  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install
+   34  vim gmp-tcs-offset/src/main/java/edu/gemini/aspen/gmp/tcsoffset/model/EpicsTcsOffsetIOC.java 
+   35  pwd
+   36  cd
+   37  cd gmp
+   38  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install
+   39  vim gmp-tcs-offset/src/main/java/edu/gemini/aspen/gmp/tcsoffset/model/EpicsTcsOffsetIOC.java 
+   40  mvn pax:run
+   41  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn pax:run
+   42  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+   43  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; 
+   44  mvn -Dmaven.test.skip=true clean
+   45  mvn -Dmaven.test.skip=true install
+   46  mvn -Dmaven.test.skip=true pax:run  
+   47  ls ./felix/cache/runner/bundle53/version0.0/bundle.jar
+   48  ls ./felix/cache/runner
+   49  ls ./felix/cache
+   50  ls ./felix/
+   51  ls ./
+   52  mvn -Dmaven.test.skip=true install
+   53  mvn -Dmaven.test.skip=true pax:run  
+   54  ls ~/.m2/repository/felix/cache/runner/bundle74/version0.0/bundle.jar
+   55  ls ~/.m2/repository/felix/cache/runner
+   56  ls ~/.m2/repository/felix/cache/
+   57* ls ~/.m2/repository/
+   58  find . | grep cache
+   59  ls ./runner/felix/cache
+   60  ls ./runner/felix/
+   61  ls ./runner/
+   62  mv ./runner/ /tmp/
+   63  ls /tmp/
+   64  ls /tmp/runner/
+   65  mvn -Dmaven.test.skip=true install
+   66  mvn -Dmaven.test.skip=true pax:run  
+   67  pwd
+   68  cd ../
+   69  cd gmp_carlos/
+   70  ls
+   71  cd gmp-repo/
+   72  ls
+   73  mnv pax:run
+   74  mvn -Dmaven.test.skip=true pax:run  
+   75  cd ..
+   76  ls -ltrh
+   77  meld gmp-repo/ ~/gmp
+   78  ls -ltrh
+   79  cd gmp
+   80  git remote show origin
+   81  pwd
+   82  cd
+   83  cd gmp
+   84  git remote show origin
+   85  git show remote origin
+   86  ls -ltrh
+   87  pwd
+   88  git log
+   89  git -v
+   90  git --v
+   91  git branch -vv
+   92  git remote show origing
+   93  git remote show origin
+   94  ping www.google.es
+   95  vim /etc/resolv.conf 
+   96  sudo su
+   97  ping www.google.es
+   98  git remote show origing
+   99  git remote show origin
+  100  ls 
+  101  cd ..
+  102  git clone gmp-repo
+  103  git clone  git@github.com:gemini-hlsw/gmp.git gmp-repo
+  104  meld gmp gmp-repo/
+  105  bg
+  106  cd gmp-repo/
+  107  history | grep pax
+  108  mvn -Dmaven.test.skip=true install; mvn pax:run
+  109  mvn -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  110  ls gmp-offset/.idea
+  111  pwd
+  112  mvn -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  113  pwd
+  114  mvn -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  115  cd ..
+  116  cd gmp
+  117  history | grep mvn | grep offse
+  118  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  119  pwd
+  120  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  121  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; 
+  122  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  123  pwd
+  124  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  125   mvn -Dmaven.test.skip=true pax:run
+  126  pwd
+  127  mvn clean
+  128   mvn -Dmaven.test.skip=true pax:run
+  129   mvn -Dmaven.test.skip=true install
+  130   mvn -Dmaven.test.skip=true pax:run
+  131  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  132  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  133  pwd
+  134  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  135  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  136  mvn -Dmaven.test.skip=true pax:run
+  137  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  138  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; 
+  139  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  140  vim gmp-tcs-offset/pom.xml 
+  141  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; 
+  142  vim gmp-tcs-offset/pom.xml 
+  143  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  144  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  145  clear
+  146  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  147  ls -ltrh
+  148  ls -tlrh ../
+  149  meld ../gmp-good-offset-init/ ../gmp
+  150  history | grep meld
+  151  meld ../gmp-good-offset-init/ ../gmp-repo/
+  152  ls -ltrh ..
+  153  cd ..
+  154  meld gmp-repo/ gmp
+  155  cd gmp
+  156  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  157  cd ..
+  158  meld gmp-repo/ gmp
+  159  cd gmp-repo/
+  160  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  161  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  162  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  163  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  164  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  165  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  166  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  167  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  168  pwd
+  169  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; 
+  170  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  171  vim runner/logs/gmp.log
+  172  vim gmp-tcs-offset/osgi.bnd 
+  173  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  174  cd ..
+  175  ls -ltrh
+  176  meld gmp gmp-good-offset-init/
+  177  cd gmp_carlos/
+  178  ls
+  179  ls -ltrh
+  180  meld gmp-repo/ ../gmp
+  181  rm -rf gmp-repo/
+  182  df -h
+  183  du -sh gmp/
+  184  cd ..
+  185  ls -ltrh
+  186  cd gmp
+  187  git remote show origin
+  188  git clone git@github.com:gemini-hlsw/gmp.git gmp-oficial
+  189  meld gmp gmp-oficial/
+  190  meld gmp gmp-oficial
+  191  ls
+  192  ls -ltrh
+  193  mv gmp-oficial/ ./
+  194  mv gmp-oficial/ ../
+  195  cd ..
+  196  meld gmp gmp-oficial/
+  197  ls
+  198  ls -1
+  199  ls -ltrh
+  200  cd gmp-oficial/
+  201  mvn -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  202  pwd
+  203  mvn -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  204  vim pom.xml 
+  205  mvn -Dmaven.test.skip=true pax:run
+  206  vim pom.xml 
+  207  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  208  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  209  cp src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg /tmp/
+  210  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  211  mvn -Dmaven.test.skip=true pax:run
+  212  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  213  meld src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg /tmp/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  214  mvn -Dmaven.test.skip=true pax:run
+  215  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  216  cp src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg /tmp/
+  217  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  218  mvn -Dmaven.test.skip=true pax:run
+  219  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  220  mvn -Dmaven.test.skip=true pax:run
+  221  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  222  mvn -Dmaven.test.skip=true pax:run
+  223  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  224  mvn -Dmaven.test.skip=true pax:run
+  225  vim runner/logs/gmp.log 
+  226  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  227  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  228  mvn -Dmaven.test.skip=true pax:run
+  229  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  230  vim runner/logs/gmp.log 
+  231  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  232  mvn -Dmaven.test.skip=true pax:run
+  233  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  234  mvn -Dmaven.test.skip=true pax:run
+  235  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  236  mvn -Dmaven.test.skip=true pax:run
+  237  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  238  mvn -Dmaven.test.skip=true pax:run
+  239  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  240  mvn -Dmaven.test.skip=true pax:run
+  241  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  242  mvn -Dmaven.test.skip=true pax:run
+  243  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  244  mvn -Dmaven.test.skip=true pax:run
+  245  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  246  mvn -Dmaven.test.skip=true pax:run
+  247  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  248  pwd
+  249  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  250  vim gmp-tcs-offset/src/main/java/edu/gemini/aspen/gmp/tcsoffset/model/EpicsTcsOffsetIOC.java 
+  251  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  252  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  253  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  254  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  255  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  256  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  257  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  258  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  259  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  260  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  261  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  262  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  263  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  264  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  265  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  266  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  267  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  268  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  269  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  270  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  271  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  272  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  273  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  274  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  275  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  276  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  277  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  278  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  279  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  280  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  281  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  282  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  283  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  284  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  285  mvn -Dmaven.test.skip=true pax:run
+  286  vim src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  287  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  288  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  289  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  290  mvn -f gmp-tcs-offset/pom.xml -Dmaven.test.skip=true install; mvn -Dmaven.test.skip=true pax:run
+  291  vim gmp-tcs-offset/src/main/scala/edu/gemini/aspen/gmp/tcsoffset/osgi/TcsOffsetComponentFactory.scala 
+  292  LS -LTRH
+  293  ls -ltrh
+  294  pwd
+  295  cd ..
+  296  ls -ltrh
+  297  umount gmp
+  298  fusermount --help
+  299  fusermount -u gmp
+  300  cd
+  301  fusermount -u gmp
+  302  ls gmp
+  303  fusermount -u gmp
+  304  ps -ef | grep gmp
+  305  kill -9 10676
+  306  ps -ef | grep gmp
+  307  kill -9 79909
+  308  ps -ef | grep gmp
+  309  kill -9 81362
+  310  ps -ef | grep gmp
+  311  kill -9 80664
+  312  ps -ef | grep gmp
+  313  fusermount -u gmp
+  314  cd gmp
+  315   mvn -Dmaven.test.skip=true pax:run
+  316  cd ll
+  317  cd ..
+  318  cd gmp
+  319  ls
+  320  pwd
+  321  cd ..
+  322  ls -ltrh
+  323  cd gmp-oficial/
+  324  ls
+  325  cd ..
+  326  vim .bashrc
+  327  export LC_CTYPE="en_GB.UTF-8"
+  328  scp -r gmp-oficial/ framos@192.168.1.84:/Users/framos/igrings2/
+  329  cd gmp-oficial/
+  330  ls
+  331  find gmp-offset
+  332  rmp -rf gmp-offset
+  333  rm -rf gmp-offset
+  334   mvn -Dmaven.test.skip=true pax:run
+  335  cd ..
+  336  mkdir gmp
+  337  sshfs framos@192.168.1.84:/Users/framos/igrings2/gmp-oficial gmp
+  338  cd gmp
+  339  ls
+  340  ls -tlrh .idea/
+  341   mvn -Dmaven.test.skip=true clean
+  342   mvn -Dmaven.test.skip=true install
+  343   mvn -Dmaven.test.skip=true pax:run
+  344  meld src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg /tmp/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  345  bg
+  346  ls
+  347   mvn -Dmaven.test.skip=true pax:run
+  348  ps -ef | grep java
+  349  ps -ef | grep gmp
+  350   mvn -Dmaven.test.skip=true pax:run
+  351  mvn -Dmaven.test.skip=true -f giapi/pom.xml install;  mvn -Dmaven.test.skip=true pax:run
+  352    mvn -Dmaven.test.skip=true pax:run
+  353  mvn -Dmaven.test.skip=true -f giapi/pom.xml install;  mvn -Dmaven.test.skip=true pax:run
+  354  meld src/main/config/services/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg /tmp/edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetComponent-default.cfg 
+  355  bg
+  356   mvn -Dmaven.test.skip=true pax:run
+  357  mvn -Dmaven.test.skip=true -f gmp-tcs-offset/pom.xml install;  mvn -Dmaven.test.skip=true pax:run
+  358* ps -ef | grep j
+  359  mvn -Dmaven.test.skip=true -f gmp-tcs-offset/pom.xml install;  mvn -Dmaven.test.skip=true pax:run
+  360  cd gmp-tcs-offset/
+  361  mvn clean
+  362  cd ..
+  363  mvn -Dmaven.test.skip=true -f gmp-tcs-offset/pom.xml install;  mvn -Dmaven.test.skip=true pax:run
+  364  mvn clean
+  365  mvn -Dmaven.test.skip=true -f gmp-tcs-offset/pom.xml install;  mvn -Dmaven.test.skip=true pax:run
+  366  mvn -Dmaven.test.skip=true clean; mvn -Dmaven.test.skip=true install
+  367   mvn -Dmaven.test.skip=true pax:run
+  368  cd ..
+  369  history | grep clone
+  370  git clone git@github.com:gemini-hlsw/gmp.git gmp-oficial2
+  371  mcd -
+  372  cd -
+  373  meld gmp gmp-oficial2/
+  374  cd gmp-oficial2/
+  375  mvn -Dmaven.test.skip=true clean; mvn -Dmaven.test.skip=true install
+  376   mvn -Dmaven.test.skip=true pax:run
+  377  cd ..
+  378  ls -ltrh
+  379  cd gmp
+  380  ls -ltrh
+  381  rm -rf runner/
+  382  pwd
+  383   mvn -Dmaven.test.skip=true pax:run
+  384  cd ..
+  385  cd gmp-oficial2/
+  386   mvn -Dmaven.test.skip=true pax:run
+  387  find ../gmp/gmp-tcs-offset/
+  388  find ../gmp/gmp-tcs-offset/ | grep ide
+  389  pwd
+  390  history > deploy_gmp.txt
