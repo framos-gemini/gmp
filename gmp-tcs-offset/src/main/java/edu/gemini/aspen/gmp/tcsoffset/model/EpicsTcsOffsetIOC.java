@@ -1,7 +1,6 @@
 package edu.gemini.aspen.gmp.tcsoffset.model;
 
 import com.google.common.collect.ImmutableList;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import edu.gemini.aspen.giapi.offset.OffsetType;
 import edu.gemini.epics.*;
@@ -12,6 +11,7 @@ import gov.aps.jca.TimeoutException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -60,7 +60,6 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
 
     private ReadWriteEpicsEnumChannel<Dir> _tcsApply;
 
-    private ChannelAccessSubscribe _epicsClient = null;
 
     private Boolean _tcsIsInPosition;
 
@@ -162,7 +161,7 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
     private void createLoopChannels(String loopKey,
                                     HashMap<String,  ReadWriteClientEpicsChannel<String>> map) throws TcsOffsetException {
         if (_tcsChLoops.get(loopKey) == null)
-            throw new TcsOffsetException(TcsOffsetException.Error.ERROR_CONFIGURATION_FILE,
+            throw new TcsOffsetException(TcsOffsetException.Error.CONFIGURATION_FILE,
                                    "Error, There is not the " + loopKey +
                                    " declared in the tcsChLoops json configuration");
 
@@ -195,15 +194,15 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
             _virtualTelChannel = _ew1.getStringChannel(_tcsOffsetChannel + ".D");
             _tcsApply = (ReadWriteEpicsEnumChannel<Dir>) _ew1.getEnumChannel( "tc1:apply.DIR", Dir.class);
             // Monitor Channels
-            _eo.registerEpicsClient(new ChannelAccessSubscribe2(this::setTcsInPos),
+            _eo.registerEpicsClient(new ChannelAccessSubscribe(this::setTcsInPos),
                                     ImmutableList.of("tc1:inPosCombine"));
-            _eo.registerEpicsClient(new ChannelAccessSubscribe2(this::setTcsStatus),
+            _eo.registerEpicsClient(new ChannelAccessSubscribe(this::setTcsStatus),
                     ImmutableList.of("tc1:applyC"));
 
-            _eo.registerEpicsClient(new ChannelAccessSubscribe2(this::tcsError),
+            _eo.registerEpicsClient(new ChannelAccessSubscribe(this::tcsError),
                     ImmutableList.of("tc1:ErrorVal.VAL"));
 
-            _eo.registerEpicsClient(new ChannelAccessSubscribe2(this::tcsErrorMsg),
+            _eo.registerEpicsClient(new ChannelAccessSubscribe(this::tcsErrorMsg),
                     ImmutableList.of("tc1:ErrorMess.VAL"));
 
             // Create the channels for the open and close sequence loop
@@ -389,7 +388,7 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
                     method.invoke(this);
                 } catch (InvocationTargetException | NoSuchMethodException | IllegalAccessException e ) {
                     e.printStackTrace();
-                    throw new TcsOffsetException(TcsOffsetException.Error.ERROR_CONFIGURATION_FILE,
+                    throw new TcsOffsetException(TcsOffsetException.Error.CONFIGURATION_FILE,
                             "The tcsChLoops configuration is wrong. The "+ methodName+ " is not implemented.", e);
                 }
             }
@@ -409,13 +408,12 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
         System.out.println("TCS in position: " + _tcsIsInPosition + " _tcsState: " + _tcsState + " - " + CARSTATE.ERROR);
 
         if (_tcsState == CARSTATE.ERROR || _tcsStatus == TCSSTATUS.ERR)
-            throw new TcsOffsetException(TcsOffsetException.Error.TCS_ERROR_STATE,
+            throw new TcsOffsetException(TcsOffsetException.Error.TCS_STATE,
                                          "There is an error in the TCS, please clean the TCS before continue. ");
 
         if (!_tcsIsInPosition && (!waitTcsInPos(5000, true)))
             throw new TcsOffsetException(TcsOffsetException.Error.TCS_NOT_INPOS,
                                          "Tcs is not in position before applying the offset ");
-
         try {
             iterateSequence("openLoop");
             // Applying P offset
@@ -425,17 +423,24 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
             waitTcsInPosBlinking();
             iterateSequence("closeLoop");
             if (_tcsState == CARSTATE.ERROR || _tcsStatus == TCSSTATUS.ERR)
-                throw new TcsOffsetException(TcsOffsetException.Error.TCS_ERROR_STATE, "There was an error applying the offset");
+                throw new TcsOffsetException(TcsOffsetException.Error.TCS_STATE, "There was an error applying the offset");
 
-        } catch (CAException | TimeoutException e) {
-            System.out.println("Error CA ");
-            e.printStackTrace();
-            throw new RuntimeException(e);
+        } catch (CAException  e) {
+            LOG.log(Level.WARNING, e.getMessage(), e);
+            setChannelsNull();
+            throw new TcsOffsetException(TcsOffsetException.Error.TIMEOUT,
+                                         "Timeout Error trying to set the TCS epics channel. Please check the TCS status", e);
+        } catch (TimeoutException e) {
+            LOG.log(Level.WARNING, e.getMessage(), e);
+            throw new TcsOffsetException(TcsOffsetException.Error.TIMEOUT,
+                                         "Timeout Error trying to set the TCS epics channel. Please check the TCS status", e);
         } catch (IllegalStateException e) {  // when the TCS is rebooted, it is necessary to force the Epics channels initialization.
                                              // Therefore, the channels are set to null and the next request the service will try
                                              // initialized them.
+            LOG.log(Level.WARNING, e.getMessage(), e);
             setChannelsNull();
-            throw e;
+            throw new TcsOffsetException(TcsOffsetException.Error.TCS_WAS_REBOOTED,
+                                          "It is necessary to apply the offset again", e);
         }
 
     }

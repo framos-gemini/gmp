@@ -1,15 +1,11 @@
 package edu.gemini.aspen.gmp.tcsoffset.jms;
 
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import edu.gemini.aspen.giapi.util.jms.JmsKeys;
 import edu.gemini.aspen.giapi.offset.OffsetType;
-import edu.gemini.aspen.gmp.tcsoffset.model.EpicsTcsOffsetIOC;
 import edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetException;
 import edu.gemini.aspen.gmp.tcsoffset.model.TcsOffsetIOC;
-import gov.aps.jca.CAException;
-import gov.aps.jca.TimeoutException;
 
 import javax.jms.*;
 import java.util.logging.Logger;
@@ -69,21 +65,28 @@ public class TcsOffsetRequestListener implements MessageListener {
     public void onMessage(Message message) {
 
         LOG.log(Level.FINER, "Message received");
-        boolean sendResponse = processApplyOffset(message);
+        String offsetResult=null;
+        try {
+            offsetResult=processApplyOffset(message)+"|";
+        } catch (TcsOffsetException e) {
+            offsetResult=0+"|"+e.getMessage();
+        }
 
         try {
             LOG.log(Level.FINER, "Sending reapply");
-            _dispatcher.sendOffsetResult(message.getJMSReplyTo(), sendResponse);
+            _dispatcher.sendOffsetResult(message.getJMSReplyTo(), offsetResult);
         }catch (JMSException e) {
             LOG.log(Level.WARNING, "Error sending the response to the client", e);
         }
     }
 
-    private boolean processApplyOffset(Message message)  {
+    private int processApplyOffset(Message message) throws TcsOffsetException {
         // Reading the message parameters sent by the Instrument.
         // The first parameter is the P (arcseconds units)
         // The second parameter is the Q (arseconds units)
         // The third parameter is the type of offset which is related with the Sequence Stage. (ACQ or SLOW Guiding Correction).
+
+
         try {
             Destination replyDestination = message.getJMSReplyTo();
             BytesMessage msg = (BytesMessage) message;
@@ -93,13 +96,16 @@ public class TcsOffsetRequestListener implements MessageListener {
                         msg.readDouble(),
                         OffsetType.getFromInt(msg.readInt()),
                         message.getStringProperty("instName"));
-            return true;
+
         } catch (JMSException e) {
-            LOG.log(Level.WARNING, "Error reading the msg from the client", e);
+            LOG.log(Level.WARNING, "Error reading the msg", e);
+            throw new TcsOffsetException(TcsOffsetException.Error.READING_JMS_MESSAGE,
+                                              "Error reading the JMS message ", e);
         } catch (TcsOffsetException e) {
             LOG.log(Level.WARNING, "Problem applying TCS Offset", e);
+            throw e;
         }
-        return false;
+        return 1;
     }
 
     private void checkLimits(JsonObject obj, double value) throws TcsOffsetException {
@@ -113,22 +119,17 @@ public class TcsOffsetRequestListener implements MessageListener {
     }
 
     private void sendOffset(double p, double q, OffsetType offsetType, String instName) throws TcsOffsetException {
+        JsonObject obj = _offsetConfig.getAsJsonObject(instName).getAsJsonObject(offsetType.getText()).getAsJsonObject("offset");
+        checkLimits(obj.getAsJsonObject("p"), p);
+        checkLimits(obj.getAsJsonObject("q"), q);
         try {
-            JsonObject obj = _offsetConfig.getAsJsonObject(instName).getAsJsonObject(offsetType.getText()).getAsJsonObject("offset");
-            System.out.println("OffsetType: "+ offsetType);
-            System.out.println(obj);
-            System.out.println(obj.getAsJsonObject("p"));
-            System.out.println(obj.getAsJsonObject("q"));
-            checkLimits(obj.getAsJsonObject("p"), p);
-            checkLimits(obj.getAsJsonObject("q"), q);
             _epicsTcsOffsetIOC.setTcsOffset(p,q,offsetType);
-        } catch (CAException e) {
-            LOG.log(Level.WARNING, "It was not possible to communicate with the TCS, please check the network configuration");
+        } catch (TcsOffsetException e) {
             e.printStackTrace();
-            throw new RuntimeException(e);
-        } catch (TimeoutException e) {
-            LOG.log(Level.WARNING, "");
-            throw new TcsOffsetException("Timeout TCS connection, try again to send the offset", e);
+            if (e.getTypeError() == TcsOffsetException.Error.TCS_WAS_REBOOTED)
+                _epicsTcsOffsetIOC.setTcsOffset(p,q,offsetType);
+            else
+                throw e;
         }
     }
 

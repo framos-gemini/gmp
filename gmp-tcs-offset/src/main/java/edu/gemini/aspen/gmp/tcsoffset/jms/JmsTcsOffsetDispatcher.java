@@ -1,11 +1,10 @@
 package edu.gemini.aspen.gmp.tcsoffset.jms;
 
-import edu.gemini.aspen.giapi.offset.OffsetType;
 import edu.gemini.jms.api.BaseMessageProducer;
 //import edu.gemini.aspen.giapi.offset.OffsetType;
 import javax.jms.Destination;
 import javax.jms.JMSException;
-import javax.jms.BytesMessage;
+import javax.jms.TextMessage;
 import java.util.logging.Logger;
 
 /**
@@ -18,9 +17,9 @@ public class JmsTcsOffsetDispatcher extends BaseMessageProducer {
         super(clientName, null);
     }
 
-    public void sendOffsetResult(Destination destination, boolean offsetApplied) throws JMSException {
-        BytesMessage msg = _session.createBytesMessage();
-        msg.writeBoolean(offsetApplied);
+    public void sendOffsetResult(Destination destination, String offsetApplied) throws JMSException {
+        TextMessage msg = _session.createTextMessage();
+        msg.setText(offsetApplied);
         _producer.send(destination, msg);
     }
 }

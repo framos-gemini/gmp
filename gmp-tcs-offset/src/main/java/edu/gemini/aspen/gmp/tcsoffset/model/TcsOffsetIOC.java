@@ -21,6 +21,6 @@ public interface TcsOffsetIOC {
      */
 
     void setTcsOffset(double p, double q,
-                      OffsetType typeOffset) throws CAException, TimeoutException, TcsOffsetException;
+                      OffsetType typeOffset) throws TcsOffsetException;
 
 }

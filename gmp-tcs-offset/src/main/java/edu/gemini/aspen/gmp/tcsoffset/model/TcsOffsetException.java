@@ -5,30 +5,30 @@ package edu.gemini.aspen.gmp.tcsoffset.model;
  */
 public class TcsOffsetException extends Exception {
 
+    private Error _errorType;
     public enum Error {
         TIMEOUT,
         BINDINGCHANNEL,
         TCS_NOT_INPOS,
         OUT_OF_LIMIT,
-        ERROR_CONFIGURATION_FILE,
-        TCS_ERROR_STATE
+        CONFIGURATION_FILE,
+        TCS_STATE,
+        TCS_WAS_REBOOTED,
+        READING_JMS_MESSAGE
     }
 
-
-
-    public TcsOffsetException(Error e, String  msg, Exception cause) {
-        super(String.format("ERROR CODE %s. ", e).concat(msg), cause);
+    public TcsOffsetException(Error errorType, String  msg, Exception cause) {
+        super(String.format("ERROR CODE %s. ", errorType).concat(msg), cause);
+        _errorType = errorType;
     }
 
-    public TcsOffsetException(Error e, String  msg) {
-        super(String.format("ERROR CODE %s. ", e).concat(msg));
-    }
-    public TcsOffsetException(String message, Exception cause) {
-        super(message, cause);
+    public TcsOffsetException(Error errorType, String  msg) {
+        super(String.format("ERROR CODE %s. ", errorType).concat(msg));
+        _errorType = errorType;
     }
 
-    public TcsOffsetException(String message) {
-        super(message);
+    public Error getTypeError() {
+        return _errorType;
     }
 
 }
