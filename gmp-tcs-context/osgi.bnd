@@ -3,4 +3,3 @@
 #-----------------------------------------------------------------
 Export-Package:
 Private-Package: ${bundle.namespace}.*
-Bundle-Activator:
