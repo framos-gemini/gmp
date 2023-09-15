@@ -173,7 +173,7 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
         }
     }
 
-    private void initMaps() throws TcsOffsetException, CAException, TimeoutException {
+    private void initMaps() throws TcsOffsetException{
         _chLoops = new HashMap<>();
         createLoopChannels("openLoop", _chLoops);
         createLoopChannels("closeLoop", _chLoops);
@@ -185,7 +185,7 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
 
     private boolean initializeChannels() {
         try {
-            LOG.info("Creating channel " + _tcsOffsetChannel );
+            LOG.fine("initializeChannels init");
             // Instrument offset -> 2
             _trackingFrameChannel = _ew1.getStringChannel(_tcsOffsetChannel + ".A");
             _offsetSizeChannel = _ew1.getStringChannel(_tcsOffsetChannel +".B");
@@ -207,21 +207,19 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
 
             // Create the channels for the open and close sequence loop
             initMaps();
-            LOG.info("Channels created: " + _tcsOffsetChannel);
+            LOG.fine("FRRR initializeChannels end well. _tcsOffsetChannel: " + _tcsOffsetChannel);
             return true;
         } catch (EpicsException e) {
-            LOG.warning("Problem binding "+ _tcsOffsetChannel +" channel. Check the EPICS configuration and your network settings");
+            LOG.warning("Problem binding "+ _tcsOffsetChannel +
+                         " channel. Check the EPICS configuration and your network settings or check if the TCS is running");
             e.printStackTrace();
             setChannelsNull();
         } catch (TcsOffsetException e) {
             LOG.warning("Error in the configuration file, please fix the problem");
             e.printStackTrace();
             setChannelsNull();
-        } catch (CAException e) {
-            throw new RuntimeException(e);
-        } catch (TimeoutException e) {
-            throw new RuntimeException(e);
         }
+        LOG.fine("Not initialized the EPICS channels and monitors");
         return false;
     }
 
@@ -399,13 +397,12 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
     @Override
     public void setTcsOffset(double p, double q,
                              OffsetType typeOffse) throws TcsOffsetException {
-        LOG.info("Setting offset  p: "+ p + " q: " + q +" -14");
+        LOG.fine("Setting offset  p: "+ p + " q: " + q +" -14");
         if (!areChannelsInit())
             throw new TcsOffsetException(TcsOffsetException.Error.BINDINGCHANNEL,
                                          "Problem binding " + _tcsOffsetChannel +
                                          ".[A|B|C|D] channel. Check the " + TcsOffsetComponent.class.getName()
                                          + "-default.cfg configuration file and your network settings");
-        System.out.println("TCS in position: " + _tcsIsInPosition + " _tcsState: " + _tcsState + " - " + CARSTATE.ERROR);
 
         if (_tcsState == CARSTATE.ERROR || _tcsStatus == TCSSTATUS.ERR)
             throw new TcsOffsetException(TcsOffsetException.Error.TCS_STATE,
@@ -423,7 +420,7 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
             waitTcsInPosBlinking();
             iterateSequence("closeLoop");
             if (_tcsState == CARSTATE.ERROR || _tcsStatus == TCSSTATUS.ERR)
-                throw new TcsOffsetException(TcsOffsetException.Error.TCS_STATE, "There was an error applying the offset");
+                throw new TcsOffsetException(TcsOffsetException.Error.TCS_STATE, _tcsErrorMsg);
 
         } catch (CAException  e) {
             LOG.log(Level.WARNING, e.getMessage(), e);

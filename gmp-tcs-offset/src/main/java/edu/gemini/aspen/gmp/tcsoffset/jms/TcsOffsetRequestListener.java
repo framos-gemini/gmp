@@ -85,8 +85,6 @@ public class TcsOffsetRequestListener implements MessageListener {
         // The first parameter is the P (arcseconds units)
         // The second parameter is the Q (arseconds units)
         // The third parameter is the type of offset which is related with the Sequence Stage. (ACQ or SLOW Guiding Correction).
-
-
         try {
             Destination replyDestination = message.getJMSReplyTo();
             BytesMessage msg = (BytesMessage) message;
