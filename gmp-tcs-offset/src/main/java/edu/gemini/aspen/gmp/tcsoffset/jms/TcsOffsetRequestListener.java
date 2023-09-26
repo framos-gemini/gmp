@@ -21,8 +21,10 @@ public class TcsOffsetRequestListener implements MessageListener {
     /**
      * Message producer used to send the TCS Offset back to the requester
      */
-    private final JmsTcsOffsetDispatcher _dispatcher;
-    private final JsonObject _offsetConfig;
+    private  JmsTcsOffsetDispatcher _dispatcher;
+    private  JsonObject _offsetConfig;
+
+    private  Boolean _simulation;
 
     /**
      * TCS Offset fetcher, used to obtain the TCS Offset.
@@ -36,12 +38,21 @@ public class TcsOffsetRequestListener implements MessageListener {
      * @param dispatcher JMS Dispatcher that sends back the TCS Offset
      */
     public TcsOffsetRequestListener(JmsTcsOffsetDispatcher dispatcher, JsonObject offsetConfig) {
+        setAttributes(dispatcher, offsetConfig, false);
+    }
+
+    public TcsOffsetRequestListener(JmsTcsOffsetDispatcher dispatcher, JsonObject offsetConfig, Boolean simulation) {
+        setAttributes(dispatcher, offsetConfig, simulation);
+    }
+
+    private void setAttributes (JmsTcsOffsetDispatcher dispatcher, JsonObject offsetConfig, Boolean simulation ) {
         if (dispatcher == null) {
             throw new IllegalArgumentException("Cannot construct TcsOffsetRequestListener with a null dispatcher");
         }
         System.out.println("TcsOffsetRequestListener created");
         _dispatcher = dispatcher;
         _offsetConfig = offsetConfig;
+        _simulation = simulation;
     }
 
     /**
@@ -67,9 +78,9 @@ public class TcsOffsetRequestListener implements MessageListener {
         LOG.log(Level.FINER, "Message received");
         String offsetResult=null;
         try {
-            offsetResult=processApplyOffset(message)+"|";
+            offsetResult = processApplyOffset(message)+"|";
         } catch (TcsOffsetException e) {
-            offsetResult=0+"|"+e.getMessage();
+            offsetResult = 0 + "|" + e.getMessage();
         }
 
         try {
@@ -106,22 +117,28 @@ public class TcsOffsetRequestListener implements MessageListener {
         return 1;
     }
 
-    private void checkLimits(JsonObject obj, double value) throws TcsOffsetException {
+    private boolean checkLimits(JsonObject obj, double value)  {
         double max = obj.get("max").getAsDouble();
         double min = obj.get("min").getAsDouble();
-        System.out.println("maxC: "+ max + " minC: "+ min + " value: "+ value);
-        if (  value > max || value < min)
-            throw new TcsOffsetException(TcsOffsetException.Error.OUT_OF_LIMIT,
-                                         "The "+ value + " is out the limit defined for the instrument. Max: "
-                                         + max + " . Min: " + min);
+        LOG.fine("maxC: "+ max + " minC: "+ min + " value: "+ value);
+        if (  Math.abs(value) > Math.abs(max) || Math.abs(value) < Math.abs(min) )
+            return false;
+        return true;
     }
 
     private void sendOffset(double p, double q, OffsetType offsetType, String instName) throws TcsOffsetException {
         JsonObject obj = _offsetConfig.getAsJsonObject(instName).getAsJsonObject(offsetType.getText()).getAsJsonObject("offset");
-        checkLimits(obj.getAsJsonObject("p"), p);
-        checkLimits(obj.getAsJsonObject("q"), q);
+        boolean limitP = checkLimits(obj.getAsJsonObject("p"), p);
+        boolean limitQ = checkLimits(obj.getAsJsonObject("q"), q);
+        LOG.fine("Limit1 : " + limitP + " limit2: " + limitQ);
+        if (!limitP && !limitQ)
+            throw new TcsOffsetException(TcsOffsetException.Error.OUT_OF_LIMIT,
+                    "The offset is out the limit defined for the instrument");
+
+        double pVal = (limitP) ? p : 0;
+        double qVal = (limitQ) ? q : 0;
         try {
-            _epicsTcsOffsetIOC.setTcsOffset(p,q,offsetType);
+            _epicsTcsOffsetIOC.setTcsOffset(pVal,qVal,offsetType);
         } catch (TcsOffsetException e) {
             e.printStackTrace();
             if (e.getTypeError() == TcsOffsetException.Error.TCS_WAS_REBOOTED)

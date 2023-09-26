@@ -69,7 +69,7 @@ public class TcsOffsetComponent implements JmsArtifact {
         _dispatcher = new JmsTcsOffsetDispatcher("TCS Offset Replier");
         _offsetConfig = offsetConfig;
         _tcsChLoops = jsonTcsChLoops;
-        _listener = new TcsOffsetRequestListener(_dispatcher, _offsetConfig);
+        _listener = new TcsOffsetRequestListener(_dispatcher, _offsetConfig, simulation);
         //Creates the TCS Offset Request Consumer
         _messageConsumer = new BaseMessageConsumer("JMS TCS Offset Request Consumer",
                                                     new DestinationData(TcsOffsetRequestListener.DESTINATION_NAME, DestinationType.TOPIC),
@@ -81,8 +81,8 @@ public class TcsOffsetComponent implements JmsArtifact {
     public void start() throws JMSException, CAException, TimeoutException {
         LOG.info("Starting service, simulation is: " + simulation);
         if (!simulation) {
-                _tcsOffsetIOC = new EpicsTcsOffsetIOC(_ew1,_er, _eo, tcsTop, _tcsChLoops);
-                _listener.registerTcsOffsetFetcher(_tcsOffsetIOC);
+            _tcsOffsetIOC = new EpicsTcsOffsetIOC(_ew1,_er, _eo, tcsTop, _tcsChLoops);
+            _listener.registerTcsOffsetFetcher(_tcsOffsetIOC);
         } else {
             LOG.warning("TCS in simulation mode");
         }
@@ -107,7 +107,6 @@ public class TcsOffsetComponent implements JmsArtifact {
         LOG.info("TCS Offset validated, starting... ");
         _dispatcher.startJms(provider);
         _messageConsumer.startJms(provider);
-
         LOG.info("TCS Offset Service started");
     }
 
