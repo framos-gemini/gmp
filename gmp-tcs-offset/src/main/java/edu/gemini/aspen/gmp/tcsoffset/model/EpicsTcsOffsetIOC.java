@@ -414,9 +414,9 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
         try {
             iterateSequence("openLoop");
             // Applying P offset
-            applyOffset(Double.toString(p), "180.0");
+            applyOffset(Double.toString(p), "90.0");
             // Applying Q offset
-            applyOffset(Double.toString(q), "90.0");
+            applyOffset(Double.toString(q), "180.0");
             waitTcsInPosBlinking();
             iterateSequence("closeLoop");
             if (_tcsState == CARSTATE.ERROR || _tcsStatus == TCSSTATUS.ERR)
