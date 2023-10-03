@@ -79,6 +79,8 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
     private TCSSTATUS _tcsStatus;
     private String _tcsErrorMsg;
 
+    private String _tcsTop;
+
 
     /**
      * Constructor. Takes as an argument the EPICS reader to get access
@@ -101,6 +103,8 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
         } else {
             _tcsOffsetChannel = tcsTop + TCS_OFFSET_CHANNEL;
         }
+
+        _tcsTop = tcsTop;
         _ew1 = ew1;
         _er = er;
         _eo = eo;
@@ -192,18 +196,18 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
             _angleChannel = _ew1.getStringChannel(_tcsOffsetChannel +".C");
             // -14 is the mask in the TCS which is the SOURCE_A.
             _virtualTelChannel = _ew1.getStringChannel(_tcsOffsetChannel + ".D");
-            _tcsApply = (ReadWriteEpicsEnumChannel<Dir>) _ew1.getEnumChannel( "tc1:apply.DIR", Dir.class);
+            _tcsApply = (ReadWriteEpicsEnumChannel<Dir>) _ew1.getEnumChannel( _tcsTop+"apply.DIR", Dir.class);
             // Monitor Channels
             _eo.registerEpicsClient(new ChannelAccessSubscribe(this::setTcsInPos),
-                                    ImmutableList.of("tc1:inPosCombine"));
+                                    ImmutableList.of(_tcsTop + "inPosCombine"));
             _eo.registerEpicsClient(new ChannelAccessSubscribe(this::setTcsStatus),
-                    ImmutableList.of("tc1:applyC"));
+                    ImmutableList.of(_tcsTop + "applyC"));
 
             _eo.registerEpicsClient(new ChannelAccessSubscribe(this::tcsError),
-                    ImmutableList.of("tc1:ErrorVal.VAL"));
+                    ImmutableList.of(_tcsTop + "ErrorVal.VAL"));
 
             _eo.registerEpicsClient(new ChannelAccessSubscribe(this::tcsErrorMsg),
-                    ImmutableList.of("tc1:ErrorMess.VAL"));
+                    ImmutableList.of(_tcsTop + "ErrorMess.VAL"));
 
             // Create the channels for the open and close sequence loop
             initMaps();
