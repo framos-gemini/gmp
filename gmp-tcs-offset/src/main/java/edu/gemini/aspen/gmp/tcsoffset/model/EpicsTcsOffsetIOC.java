@@ -364,8 +364,10 @@ public class EpicsTcsOffsetIOC implements TcsOffsetIOC {
     }
 
     private void applyOffset(String val, String offsetAngle) throws CAException, TimeoutException {
+        _trackingFrameChannel.setValue("2");
         _offsetSizeChannel.setValue(val);
         _angleChannel.setValue(offsetAngle);
+        _virtualTelChannel.setValue("-14");
         tcsApply();
     }
 
