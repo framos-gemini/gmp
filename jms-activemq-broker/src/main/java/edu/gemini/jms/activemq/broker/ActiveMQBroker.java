@@ -58,6 +58,9 @@ public class ActiveMQBroker implements Broker {
         }
         try {
             _broker.addConnector(builder.url);
+            if (builder.stompUrl != null && !builder.stompUrl.isEmpty() && !builder.stompUrl.equals(builder.url)) {
+                _broker.addConnector(builder.stompUrl);
+            }
         } catch (Exception e) {
             LOG.log(Level.SEVERE, "URL for ActiveMQ Broker not valid: " + builder.url + " aborting...", e);
             throw new IllegalArgumentException("Cannot start a broker with a url " + builder.url);
@@ -88,6 +91,7 @@ public class ActiveMQBroker implements Broker {
         private double memoryPercentage = ConfigDefaults.BROKER_MEMORY_PERCENTAGE;
         private int maxStorageMB = ConfigDefaults.BROKER_MAX_STORAGE_MB;
         private int maxMessagesLimit = ConfigDefaults.BROKER_MAX_MESSAGES_LIMIT;
+        private String stompUrl = ConfigDefaults.BROKER_STOMP_URL;
 
         public Builder useJmx(boolean useJmx) {
             this.useJmx = useJmx;
@@ -143,6 +147,11 @@ public class ActiveMQBroker implements Broker {
             return this;
         }
 
+        public Builder stompUrl(String stompUrl) {
+            this.stompUrl = stompUrl;
+            return this;
+        }
+
         public ActiveMQBroker build() {
             return new ActiveMQBroker(this);
         }
@@ -151,6 +160,7 @@ public class ActiveMQBroker implements Broker {
 
     public void start() {
         LOG.info("Starting up ActiveMQ AMQ Broker");
+        System.out.println("lalalalallalalalalallal ;;;;;;;;;;;;;;;;;;;;");
         try {
             _broker.start();
             if (_broker.waitUntilStarted()) {

@@ -1,0 +1,1000 @@
+   92  ls -ltrh
+   93  cd 1440_1440_Full-Field_14_03
+   94  head readTimes_Subscriber_2025_05_11_18_08_09.csv 
+   95  date
+   96  ls -ltrh
+   97  cd ..
+   98  ls -ltrh
+   99  cd 1440_1440_Full-Field_10_22
+  100  ls -ltrg
+  101  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv 
+  102  bg
+  103  ls -ltrh
+  104  vim analyze_data.py 
+  105  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv 
+  106  ssh cposcrpodev-lv1
+  107  ssh cposcrpodev-lv1
+  108  ssh cposcrpodev-lv1
+  109  ssh cposcrpodev-lv1
+  110  ssh cposcrpodev-lv1
+  111  top
+  112  ls -ltrh
+  113  cd testPlot/NFS/
+  114  ls
+  115  ls -ltrh
+  116  ./nfsNoise.sh 
+  117  ls -ltrh
+  118  cd testPlot/
+  119  ls -ltrh
+  120  cd NFS/
+  121  ls
+  122  ls -ltrh
+  123  ./nfsNoise
+  124  ./nfsNoise.sh 
+  125  ls -ltrh
+  126  ./startAnalyze.sh 1440_1440_Full-Field_10_22
+  127  ls 
+  128  ls -ltrh
+  129  top
+  130  ls -ltrh
+  131  vim nfsNoise.sh 
+  132  ps -ef | grep nfsNoise
+  133  pwd
+  134  cat nfsNoise.sh 
+  135  vim nfsNoise.sh 
+  136  ls -ltrh
+  137  ps -ef | grep noise
+  138  ps -ef | grep -i noise
+  139  ps -ef | grep -i nfs
+  140  ps | grep -i noise
+  141  ps -af | grep -i nois
+  142  ps -af | grep -i nfs
+  143  ps -af | grep -i nfs  |grep -v grep
+  144  git config --list
+  145  ls -ltrh
+  146  vim nfsNoise.sh 
+  147  ls -ltrh
+  148  head ls -ltrh 640_8200_LongSlit12_14/
+  149  ls -ltrh 640_8200_LongSlit12_14/
+  150  date
+  151  head 640_8200_LongSlit12_14/bck/readTimes_detH5_20250509T161509309.csv 
+  152  head 640_8200_LongSlit12_14/bck/writeTimesdetH5_20250509T161528305.csv 
+  153  ls -ltrh
+  154  head 1440_1440_Full-Field_10_22/bck/writeTimesdetH0_20250511T142252051.csv 
+  155  head 1440_1440_Full-Field_10_22/bck/writeTimesdetH5_20250511T142252051.csv 
+  156  head 1440_1440_Full-Field_10_22/bck/writeTimesdetH5_20250511T142252966.csv 
+  157  ls -ltrh
+  158  cat .bashrc 
+  159  cd devel/python/omt-streaming/
+  160  git status
+  161  cd
+  162  ll
+  163  cd redis/
+  164  ll
+  165  cd ..
+  166  ll
+  167  cd isw/
+  168  ll
+  169  cd ..
+  170  ll
+  171  cd devel/
+  172  ll
+  173  cd python/
+  174  ll
+  175  cd ..
+  176  ll
+  177  cd ..
+  178  ll
+  179  cd devel/python/omt-streaming/
+  180  cd redis/
+  181  ll
+  182  meld redis.conf ../../../../redis/redis.conf 
+  183  cd /opt/scorpio/devel/python/omt-streaming/redis
+  184  meld redis.conf ../../../../redis/redis.conf 
+  185  cp ../../../../redis/redis.conf .
+  186  git status
+  187  vim mpid_launcher.sh
+  188  vim redis/redis.conf 
+  189  screen -ls
+  190  free -h
+  191  python
+  192  git status
+  193  cd devel/python/omt-streaming/redis
+  194  git status
+  195  git difftool -d
+  196  git add publisher.py redis.conf subscriber.py
+  197  git status
+  198  git commit . -m "IA: REDIS performance debugging"
+  199  git push origin main 
+  200  git remote show origin
+  201  git remote show
+  202  git help remote
+  203  git remote get-url origin
+  204  git help remote
+  205  git remote set-url origin https://iarriagada:glpat-qLWYcMqgas__QhSfNec7@gitlab.com/nsf-noirlab/gemini/giapi-instruments/scorpio-sw/omt-streaming.git https://iarriagada:glpat--X6WVk7QazrYmgvtYtWD@gitlab.com/nsf-noirlab/gemini/giapi-instruments/scorpio-sw/omt-streaming.git
+  206  git remote show origin
+  207  git status
+  208  git push origin main 
+  209  git fetch --all
+  210  git merge origin/main 
+  211  exit
+  212  history | grep auto
+  213  redis-cli 
+  214  redis-cli -h 172.17.124.31 PUBLISH testFR "Hello Subscriber!"
+  215  redis-cli -h 172.17.124.31 PUBLISH test-channel "Hello Subscriber!"
+  216  redis-cli CLIENT LIST | grep sub=
+  217  redis-cli CONFIG GET client-output-buffer-limit
+  218  ps -ef | grep redis
+  219  kill -9 879
+  220  systemctl stop redis
+  221  sudo systemctl stop redis-server
+  222  sudo systemctl redis-server stop
+  223  sudo systemctl redis-server status
+  224  sudo ls
+  225  sudo -l
+  226  systemctl list-unit-files --state=enabled
+  227  systemctl redis.service status
+  228  systemctl statatus redis.service 
+  229  sudo systemctl statatus redis.service 
+  230  sudo systemctl statatus redis
+  231  systemctl list-units --type=service --state=active
+  232  sudo systemctl stop redis
+  233  sudo systemctl status redis
+  234  ps -ef | grep redis
+  235  redis-cli CONFIG GET client-output-buffer-limit
+  236  redis-cli CLIENT LIST | grep sub=
+  237  redis-cli 
+  238  ps -ef | grep redi
+  239  redis-cli -h 172.17.124.31
+  240  redis-cli -h 172.17.124.31 CONFIG GET client-output-buffer-limit
+  241  redis-cli -h 172.17.124.31 CLIENT LIST | grep sub=
+  242  redis-cli -h 172.17.124.31 CONFIG SET client-output-buffer-limit "pubsub 1073741824 1073741824 60"
+  243  redis-cli -h 172.17.124.31 CLIENT LIST | grep sub=
+  244  redis-cli -h 172.17.124.31 CONFIG GET client-output-buffer-limit
+  245  watch -n 1 redis-cli -h 172.17.124.31 CLIENT LIST | grep sub=
+  246  watch -n 1 'redis-cli -h 172.17.124.31 CLIENT LIST | grep sub='
+  247  vim /tmp/configure_1024.txt
+  248  redis-cli -h 172.17.124.31 CONFIG GET client-output-buffer-limit
+  249  vim /tmp/configure_128_64.txt
+  250  watch -n 1 'redis-cli -h 172.17.124.31 CLIENT LIST | grep sub='
+  251  redis-cli -h 172.17.124.31 CLIENT LIST | grep sub=
+  252  while true ; do  redis-cli -h 172.17.124.31 CLIENT LIST | grep sub=; sleep 1; done
+  253  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub=; sleep 1; done
+  254  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a log.txt ; sleep 1; done
+  255  ls -ltrh
+  256  vim log.txt 
+  257  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a oneDetec_log.txt ; sleep 1; done
+  258  vim oneDetec_log.txt 
+  259  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a allDetect_log.txt ; sleep 1; done
+  260  vim allDetec_log.txt 
+  261  vim allDetect_log.txt 
+  262  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a allDetectNotPrint_log.txt ; sleep 1; done
+  263  ls -ltrh
+  264  vim allDetectNotPrint_log.txt 
+  265  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a allDetectNotPrint_10_log.txt ; sleep 1; done
+  266  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a allDetectNotPrint_10_2_log.txt ; sleep 1; done
+  267  vim allDetectNotPrint_10_2_log.txt 
+  268  vim allDetectNotPrint_10_2_log.txt | grep oll=4
+  269  cat  allDetectNotPrint_10_2_log.txt | grep oll=4
+  270  cat  allDetectNotPrint_10_2_log.txt | grep -E "(oll=[4-3])"
+  271  cat  allDetectNotPrint_10_2_log.txt | grep -E "(oll=[3-4])"
+  272  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a allDetectNotPrint_10_1024_log.txt ; sleep 1; done
+  273  ls -ltrh
+  274  cat  allDetectNotPrint_10_1024_log.txt | grep -E "(oll=)"
+  275  cat  allDetectNotPrint_10_1024_log.txt | grep -v oll=0
+  276  while true ; do  echo "############# \n"; redis-cli -h 172.17.124.31 CLIENT LIST | grep sub= | tee -a allDetectNotPrint_10_1024_2_log.txt ; sleep 1; done
+  277  cat  allDetectNotPrint_10_1024_2_log.txt | grep -v oll=0
+  278  ls -ltrh
+  279  vim allDetectNotPrint_log.txt 
+  280  ls -ltrh
+  281  vim allDetectNotPrint_log.txt
+  282  vim oneDetec_log.txt 
+  283  ls -ltrh
+  284  vim allDetectNotPrint_10_1024_2_log.txt 
+  285  ls -ltrh
+  286  cd /tmp/
+  287  ls -ltrh
+  288  scp -r scorpio@sbfscrpodev-lv3:/opt/scorpio/giapi-glue-stats-ready/src/examples/ /tmp/  ./
+  289  ls -ltrh
+  290  cd tmp/
+  291  ls
+  292  cd ..
+  293  mv tmp/ src_examples
+  294  ls -ltrh
+  295  ls examples/
+  296  ls src_examples/
+  297  ls examples/
+  298  cd
+  299  ls -ltrh
+  300  cd 
+  301  meld
+  302  screen -ls
+  303  ssh cposcrpodev-lv4
+  304  ssh cposcrpodev-lv1
+  305  cd devel/python/omt-streaming/redis/
+  306  git status
+  307  git add publisher.py subscriber.py
+  308  git status
+  309  git commit . -m "IA: Modified subscriber to launch one instance of the script per detector"
+  310  git push origin main
+  311  ssh cposcrpodev-lv1
+  312  git fetch --all
+  313  git merge origin/main 
+  314  ssh cposcrpodev-lv1
+  315  ls -ltrh
+  316  cd testPlot/
+  317  ls -ltrh
+  318  cd NFS/
+  319  ls -ltrh
+  320  cd 1440_1440_Full-Field_10_22/
+  321  ls -ltrh
+  322  head writeTimes_publisher_2025_05_11_17_59_08.csv
+  323  date
+  324  cd ..
+  325  ls -ltrh
+  326  cd 1440_1440_Full-Field_10_22
+  327  date
+  328  ls -ltrh
+  329  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv 
+  330  bg
+  331  ls -ltrh
+  332  tail bck/writeTimesdetH5_20250511T142252966.csv 
+  333  tail bck/writeTimesdetH0_20250511T142252051.csv 
+  334  ls -ltrh
+  335  cd bck/
+  336  ls -ltrh
+  337  tail writeTimesdetH0_20250511T142252051.csv
+  338  tail writeTimesdetH5_20250511T142252966.csv
+  339  wc writeTimesdetH5_20250511T142252966.csv
+  340  wc writeTimesdetH0_20250511T142252051.csv
+  341  fg
+  342  ls -ltrh
+  343  cd ..
+  344  ls -ltrh
+  345  date
+  346  head 720_720_Full-Field_12_33_Noise_NoWaiting12_36/writeTimes_publisher_2025_05_12_13_45_41.csv 
+  347  date
+  348  wc 720_720_Full-Field_12_33_Noise_NoWaiting12_36/writeTimes_publisher_2025_05_12_13_45_41.csv 
+  349  wc 720_720_Full-Field_12_33_Noise_NoWaiting12_36/readTimes_Subscriber_2025_05_12_13_45_42.csv 
+  350  head 720_720_Full-Field_12_33_Noise_NoWaiting12_36/writeTimes_publisher_2025_05_12_13_45_41.csv 
+  351  tail 720_720_Full-Field_12_33_Noise_NoWaiting12_36/writeTimes_publisher_2025_05_12_13_45_41.csv 
+  352  head 720_720_Full-Field_12_33_Noise_NoWaiting12_36/bck/
+  353  tail 720_720_Full-Field_12_33_Noise_NoWaiting12_36/bck/writeTimesdetH0_20250512T163709392.csv
+  354  tail 720_720_Full-Field_12_33_Noise_NoWaiting12_36/bck/writeTimesdetH5_20250512T163710332.csv
+  355  ls -ltrh
+  356  ls 640_8200_LongSlit07_56/
+  357  head 640_8200_LongSlit07_56/writeTimes_publisher_2025_05_09_11_01_26.csv 
+  358  tail 640_8200_LongSlit07_56/writeTimes_publisher_2025_05_09_11_01_26.csv 
+  359  head 640_8200_LongSlit07_56/bck/writeTimesdetH0_20250509T115822425.csv 
+  360  tail 640_8200_LongSlit07_56/bck/writeTimesdetH0_20250509T115822425.csv 
+  361  date
+  362  mv 640_8200_LongSlit07_56/ 640_8200_LongSlit07_56_tier2_saturday
+  363  cd 640_8200_LongSlit07_56_tier2_saturday/
+  364  ls -ltrh
+  365  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-09_07-56-11.csv --mon_sender monitorSys_publisher_2025-05-09_07-57-20.csv --write_times writeTimes_publisher_2025_05_09_11_01_26.csv   --read_times readTimes_Subscriber_2025_05_09_11_01_27.csv --nfs_publisher nfsLatency_publisher-2025-05-09_07-57-20.csv  --nfs_subscriber nfsLatency_subscriber-2025-05-09_07-56-11.csv 
+  366  pwd
+  367  fg
+  368  pwd
+  369  cd ..
+  370  ls -ltrh
+  371  cd 1400_21000_Full-Field_Tier1_NoWaiting8_00/
+  372  ls -ltrh
+  373  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-09_07-56-11.csv --mon_sender monitorSys_publisher_2025-05-09_07-57-20.csv --write_times writeTimes_publisher_2025_05_09_11_01_26.csv   --read_times readTimes_Subscriber_2025_05_09_11_01_27.csv --nfs_publisher nfsLatency_publisher-2025-05-09_07-57-20.csv  --nfs_subscriber nfsLatency_subscriber-2025-05-09_07-56-11.csv 
+  374  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv --read__times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  375  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  376  cd ..
+  377  ls -ltrh
+  378  free -m
+  379  top
+  380  df -h
+  381  date
+  382  top
+  383  ls -ltrh
+  384  cd testPlot/
+  385  ls
+  386  cd NFs
+  387  cd NFS/
+  388  ls -ltrh
+  389  tail -f stat_243171.csv
+  390  tail -f stat_243110.csv
+  391  top
+  392  ps -ef | grep find
+  393  ps -ef | grep find | wc
+  394  ps -ef | grep cat | wc
+  395  ps -ef | grep find | wc
+  396  top
+  397  ps -ef | grep find | wc
+  398  ps -ef | grep -i noise
+  399  ps -ef | grep -i noise | wc
+  400  ls -ltrh
+  401  cat stat_698082.csv
+  402  tail stat_698082.csv
+  403  tail -f stat_698082.csv
+  404  ls -ltrh
+  405  ps -ef | grep -i noise
+  406  top
+  407  ls -ltrh
+  408   for ((i=0;i<10;i++)); do ./nfsNoise.sh > /dev/null 2>&1 &  sleep 1; done
+  409  ps -ef | grep -i noise
+  410  top
+  411   for ((i=0;i<10;i++)); do ./nfsNoise.sh > /dev/null 2>&1 &  sleep 1; done
+  412  date
+  413  ls -ltrh
+  414  meld cmpFolder.py 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 
+  415  vim cmpFolder.py 
+  416  meld cmpFolder.py 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 
+  417  vim cmpFolder.py 
+  418  meld cmpFolder.py 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 
+  419  vim cmpFolder.py 
+  420  cp cmpFolder.py cmpFolder4.py
+  421  vim cmpFolder.py 
+  422  ifconfig -a
+  423  cd
+  424  cd gmp/
+  425  ls
+  426  cd giapi-tester/
+  427  ls
+  428  cd gmp
+  429  pwd
+  430  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.442.b06-2.el9.x86_64/
+  431  export AVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.452.b09-2.el9.x86_64/
+  432  ls -ltrh
+  433  java -jar target/giapi-tester.jar -sc INIT -activity PRESET
+  434  ps aux --sort=-%mem | head -n 10
+  435  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=11 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  436  free -m
+  437  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=11 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  438  ps -ef | grep noise
+  439  ps -ef | grep -i noise
+  440  date
+  441  ls -ltrh
+  442  cd testPlot/
+  443  ls
+  444  cd NFS/
+  445  ls -ltrh
+  446  cat nfsNoise.sh
+  447  top
+  448  ps -ef |grep cat
+  449  ps -ef 
+  450  ps -ef | grep cat
+  451  ps -ef | grep cat | awk '{ print $2 }'
+  452  ps -ef | grep cat | awk '{ print $2 }' | xargs kill
+  453  ps -ef | grep -i noise
+  454  ps -ef | grep -i noise | wc
+  455  ps -ef | grep -i noise
+  456  ls -ltrh
+  457  top
+  458  ls -ltrh
+  459  cat nfsNoise.sh 
+  460  vim nfsNoise.sh 
+  461  ps -ef |grep find
+  462  ps -ef |grep find | wc
+  463  ps -ef |grep find | akw '{ print $9 }'
+  464  ps -ef |grep find | awk '{ print $9 }'
+  465  ps -ef |grep find | awk '{ print $9 }' | grep -v grep
+  466  ps -ef |grep find | grep -v grep | awk '{ print $9 }' 
+  467  ps -ef |grep find | grep -v grep | awk '{ print $2 }' | xargs kill-9
+  468  ps -ef |grep find | grep -v grep | awk '{ print $2 }' | xargs kill -9
+  469  ps -ef |grep find | awk '{ print $9 }'
+  470  ps -ef |grep -i noise
+  471  ls -ltrh
+  472  vim nfsNoise.sh 
+  473  op
+  474  top
+  475  ls -ltrh
+  476  cd 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22
+  477  ls -ltrh
+  478  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_09-22-37.csv --mon_sender monitorSys_publisher_2025-05-15_09-22-56.csv --write_times writeTimes_publisher_2025_05_15_10_49_36.csv  --read_times readTimes_Subscriber_2025_05_15_10_49_38.csv --nfs_publisher nfsLatency_publisher_2025-05-15_09-22-56.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_09-22-37.csv 
+  479  ls -ltrh
+  480  date
+  481  vim monitorSys_publisher_2025-05-15_09-22-56.csv 
+  482  vim analyze_data.py 
+  483  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_09-22-37.csv --mon_sender monitorSys_publisher_2025-05-15_09-22-56.csv --write_times writeTimes_publisher_2025_05_15_10_49_36.csv  --read_times readTimes_Subscriber_2025_05_15_10_49_38.csv --nfs_publisher nfsLatency_publisher_2025-05-15_09-22-56.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_09-22-37.csv 
+  484  pwd
+  485  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_09-22-37.csv --mon_sender monitorSys_publisher_2025-05-15_09-22-56.csv --write_times writeTimes_publisher_2025_05_15_10_49_36.csv  --read_times readTimes_Subscriber_2025_05_15_10_49_38.csv --nfs_publisher nfsLatency_publisher_2025-05-15_09-22-56.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_09-22-37.csv 
+  486  ls -ltrh
+  487  cd ..
+  488  ls -ltrh
+  489  ./startAnalyze.sh 720_720_Full-Field_Tier1_Wait_NoNoise10_48
+  490  ls -ltrh
+  491  ./startAnalyze.sh 720_720_Full-Field_Tier1_Wait_Noise13_01
+  492  ls -ltrh
+  493  ./cmpFolder.py  --folder1 720_720_Full-Field_Tier1_Wait_NoNoise10_48 --legend1 "No Noise"  --folder2 720_720_Full-Field_Tier1_Wait_Noise13_01 --legend2 "With Noise"
+  494  ls -ltrh
+  495  720_720_Full-Field_Tier1_Wait_Noise13_01 720_720_Full-Field_Tier1_Wait_No_Noise13_01 
+  496  mv 720_720_Full-Field_Tier1_Wait_Noise13_01 720_720_Full-Field_Tier1_Wait_No_Noise13_01 
+  497  mv 720_720_Full-Field_Tier1_Wait_NoNoise10_48 720_720_Full-Field_Tier1_Wait_Noise10_48
+  498  ls -ltrh
+  499  ./cmpFolder.py  --folder1 720_720_Full-Field_Tier1_Wait_NoNoise10_48 --legend1 "Noise"  --folder2 720_720_Full-Field_Tier1_Wait_Noise13_01 --legend2 "No Noise"
+  500  ls -ltrh
+  501  ./cmpFolder.py  --folder1 720_720_Full-Field_Tier1_Wait_Noise10_48/ --legend1 "Noise"  --folder2 720_720_Full-Field_Tier1_Wait_Noise13_01 --legend2 "No Noise"
+  502  free -m
+  503  ls -ltrh
+  504  cd
+  505  ls -ltrh
+  506  cd lv3_lv4
+  507  ls -ltrh
+  508  cat 12500msgStats/
+  509  ls 12500msgStats/
+  510  cd 
+  511  mkdir /opt/scorpio/lv3_cpolv1/ActiveMQ
+  512  mkdir -p /opt/scorpio/lv3_cpolv1/ActiveMQ
+  513  ls -ltrh
+  514  cd /opt/scorpio/lv3_cpolv1/ActiveMQ
+  515  ls -ltrh
+  516  scp -r scorpio@sbfscrpodev-lv3:/opt/scorpio/lv3_cpolv1/ActiveMQ/1400_21000_Full-Field_Img  ./
+  517  ls -ltrh
+  518  cd 1400_21000_Full-Field_Img
+  519  ls -ltrh
+  520  rm 'network_log_fits_publisher_from_disk.py detH*
+  521  rm 'network_log_fits_publisher_from_disk.py detH*'
+  522  ls -ltrh
+  523  rm 'network_log_fits_publisher_from_disk.py detH1_2025-05-20_12-06-23.csv' 'network_log_fits_publisher_from_disk.py detH0_2025-05-20_12-06-23.csv' 'network_log_fits_publisher_from_disk.py detH3_2025-05-20_12-06-23.csv' 'network_log_fits_publisher_from_disk.py detH2_2025-05-20_12-06-23.csv'
+  524  ls -ltrh 8
+  525  ls -ltrh *
+  526  ls -ltrh * | tail -n 4
+  527  ls -ltrh * | tail -n 4 | awk '{print $9 }'
+  528  rm network_log_fits_publisher_from_disk.py\ detH*
+  529  ls -ltrh
+  530  rm monitorSys_publisher_2025-05-20_12-04-22.csv
+  531  ./monitorSystem.sh activemq > /dev/null 2>&1 &
+  532  ps -ef | grep python
+  533  ps -ef | grep publ
+  534  ps -ef | grep activ
+  535  ps -ef | grep java
+  536  ps -ef | grep org.ops4j.pax.url.reference_2.4.5.jar org.apache.felix.main.Main
+  537  ps -ef | grep org.ops4j.pax.url.reference_2.4.5.jar
+  538  ps -ef | grep gmp
+  539  ps -ef | grep org.ops4j.pax.url.reference_2.4.5.jar
+  540  ps -ef | grep org.ops4j.pax.url.reference_2.4.5.jar | grep -v grep
+  541  ps -ef | grep org.ops4j.pax.url.reference_2.4.5.jar | grep -v grep | awk '{print $2}'
+  542  ps -ef | grep pax | grep -v grep | awk '{print $2}'
+  543  ps -ef | grep pax:run | grep -v grep | awk '{print $2}'
+  544  ps -ef | grep org.apache.felix.main.Main | grep -v grep | awk '{print $2}'
+  545  ./monitor_pid org.apache.felix.main.Main > /dev/null 2>&1&
+  546  ls -ltrh
+  547  ./monitor_pid org.apache.felix.main.Main > /dev/null 2>&1 &
+  548  ./monitor_pid org.apache.felix.main.Main > /dev/null 
+  549  ls -ltrh
+  550  ./monitor_pid.sh org.apache.felix.main.Main > /dev/null 2>&1 &
+  551  ./monitor_pid.sh pax:run > /dev/null 2>&1 &
+  552  ls -ltrh
+  553  tail -f monitor_pax:run_2025-05-20_12-15-05.csv
+  554  tail -f  monitor_org.apache.felix.main.Main_2025-05-20_12-14-51.csv
+  555  head -n 1  monitor_org.apache.felix.main.Main_2025-05-20_12-14-51.csv && tail -f  monitor_org.apache.felix.main.Main_2025-05-20_12-14-51.csv
+  556  free -M
+  557  free -m
+  558  ps -ef | grep python
+  559  free -m
+  560  top
+  561  which bc
+  562  bc
+  563  sudo yum install bc
+  564  bc
+  565  top
+  566  ps -ef | grep -i nfs
+  567  ps -ef | grep -i nfs | awk '{ print $2 }' | xargs  kill
+  568  ls -ltrh
+  569  cd testPlot/
+  570  ls -ltrh
+  571  cd NFS/
+  572  ls -ltrh
+  573  pw
+  574  ls -ltrh
+  575  ps -ef | grep noise
+  576  ps -ef | grep -i noise
+  577  df -h
+  578  cat stat_677608.csv
+  579  cat stat_684142.csv
+  580  cat stat_686681.csv
+  581  ls -ltrh
+  582  cat cmpFolder.py 
+  583  ls -ltrh
+  584  cd 1400_21000_Full-Field_Tier1_NoWaiting8_00
+  585  ls -ltrh
+  586  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  587  ps -ef | grep -i noise
+  588  top
+  589  ps -ef | grep -i noise | awk '{print $2 }' | xargs kill
+  590  ps -ef | grep -i noise
+  591  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  592  df -h
+  593  cd /usr/local/share/scorpio_data
+  594  ls -ltrh
+  595  ls -ltrh | wc
+  596  ls -ltrh
+  597  cd
+  598  ls -ltrh
+  599  cd testPlot
+  600  ls -ltrh
+  601  cd NFS
+  602  ls -ltrh
+  603  cd 1400_21000_Full-Field_Tier1_NoWaiting17_54
+  604  ls -ltrh
+  605  cd bck/
+  606  ls
+  607  wc writeTimesdetH0_20250513T215450084.csv
+  608  wc writeTimesdetH6_20250513T215450840.csv
+  609  python
+  610  ls -ltrh
+  611  cd ..
+  612  ls -ltrh
+  613  cd ..
+  614  ls -ltrh
+  615  ls -ltrh
+  616  cat allDetectNotPrint_10_1024_2_log.txt
+  617  ls -ltrh
+  618  mkdir redis_problem_pub_sub
+  619  mv *.txt redis_problem_pub_sub/
+  620  ls -ltrh
+  621  cd testPlot/
+  622  ls
+  623  cd NFS/
+  624  ls
+  625  ls -ltrh
+  626  vim nfsNoise.sh 
+  627  for ((i=0;i<1;i++)); do ./nfsNoise.sh > /dev/null & done
+  628  ps -ef | grep -i noise
+  629  top
+  630  ls -ltrh
+  631  vim nfsNoise.sh 
+  632  ps -ef |grep -i noise
+  633  kill -9 15188
+  634  for ((i=0;i<8;i++)); do ./nfsNoise.sh > /dev/null & done
+  635  ps -ef  | grep -i noise
+  636  ps -ef  | grep -i noise | awk '{ print $2 }' | xargs kill
+  637  for ((i=0;i<20;i++)); do ./nfsNoise.sh 2>&1 /dev/null & ; sleep 1 done
+  638  for ((i=0;i<20;i++)); do ./nfsNoise.sh 2>&1 /dev/null & ; sleep 1; done
+  639  for ((i=0;i<20;i++)); do ./nfsNoise.sh > /dev/null 2>&1 & ; sleep 1; done
+  640  for ((i=0;i<20;i++)); do ./nfsNoise.sh > /dev/null 2>&1 &  sleep 1; done
+  641  ps -ef  | grep -i noise | awk '{ print $2 }' | xargs kill
+  642  vim nfsNoise.sh 
+  643  for ((i=0;i<15;i++)); do ./nfsNoise.sh > /dev/null 2>&1 &  sleep 1; done
+  644  ./nfsNoise.sh 
+  645  ps -ef  | grep -i noise | awk '{ print $2 }' | xargs kill
+  646  vim nfsNoise.sh 
+  647  ls -ltrh
+  648  rm stat_243*
+  649  for ((i=0;i<10;i++)); do ./nfsNoise.sh > /dev/null 2>&1 &  sleep 1; done
+  650  ls -ltrh
+  651  ./nfsNoise.sh 
+  652  ls -ltrh
+  653  ./startAnalyze.sh 1400_21000_Full-Field_Tier1_NoWaiting8_00
+  654  ls -ltrh
+  655  ./startAnalyze.sh 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22
+  656  ls -ltrh
+  657  cd 1400_21000_Full-Field_Tier1_NoWaiting8_00/
+  658  ls -ltrh
+  659  wc writeTimes_publisher_2025_05_15_10_48_23.csv
+  660  pwd
+  661  ls -ltrh
+  662  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv   --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  663  python
+  664  ls -ltrh
+  665  vim analyze_data.py 
+  666  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv   --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  667  vim analyze_data.py 
+  668  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv   --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  669  cd ..
+  670  ls -ltrh
+  671  meld 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22/analyze_data.py 
+  672  ls -ltrh
+  673  cd 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22/
+  674  ls -ltrh
+  675  cat analyze_data.py 
+  676  clear
+  677  ls -ltrh
+  678  head monitorSys_subscriber_2025-05-15_09-22-37.csv && head nfsLatency_subscriber_2025-05-15_09-22-37.csv && head monitorSys_publisher_2025-05-15_09-22-56.csv && head nfsLatency_publisher_2025-05-15_09-22-56.csv && head writeTimes_publisher_2025_05_15_10_49_36.csv && head readTimes_Subscriber_2025_05_15_10_49_38.csv
+  679  pwd
+  680  ls -ltrh
+  681  cd ..
+  682  cmpFolder.py
+  683  vim cmpFolder.py
+  684  chmod +x cmpFolder.py 
+  685  ls -ltrh
+  686  ./cmpFolder.py  1400_21000_Full-Field_Tier1_NoWaiting8_00 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  687  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  688  vim cmpFolder.py 
+  689  vim 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 
+  690  ls -ltrh
+  691  vim cmpFolder.py 
+  692  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  693  vim cmpFolder.py 
+  694  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  695  vim cmpFolder.py 
+  696  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  697  vim cmpFolder.py 
+  698  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  699  vim cmpFolder.py 
+  700  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  701  ls -ltrh
+  702  ls -ltrh 1400_21000_Full-Field_Tier1_NoWaiting8_00
+  703  ls -ltrh
+  704  1400_21000_Full-Field_Tier1_NoWait_NOISE09_22
+  705  ls 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22
+  706  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  707  vim cmpFolder.py 
+  708  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  709  vim cmpFolder.py 
+  710  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 
+  711  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  712  vim cmpFolder.py 
+  713  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  714  vim cmpFolder.py 
+  715  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  716  vim cmpFolder.py 
+  717  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  718  vim cmpFolder.py 
+  719  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  720  vim cmpFolder.py 
+  721  cp cmpFolder.py /tmp/
+  722  mv cmpFolder.py /tmp/
+  723  vim cmpFolder.py
+  724  meld cmpFolder.py /tmp/cmpFolder.py 
+  725  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  726  chmod +x cmpFolder.py 
+  727  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  728  vim cmpFolder.py 
+  729  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --desc1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --desc2 "pepe"
+  730  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "lala"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "pepe"
+  731  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  732  ls -ltrh
+  733  cat cmpFolder.py 
+  734  ls -ltrh
+  735  cp cmpFolder.py cmpFolder2.py 
+  736  mv cmpFolder.py cmpFolder2.py 
+  737  vim cmpFolder.py 
+  738  chmod +x cmpFolder
+  739  chmod +x cmpFolder.py 
+  740  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  741  vim cmpFolder.py 
+  742  ls -ltrh
+  743  cd 1400_21000_Full-Field_Tier1_NoWaiting8_00/
+  744  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-15_08-00-10.csv --mon_sender monitorSys_publisher_2025-05-15_08-00-28.csv --write_times writeTimes_publisher_2025_05_15_10_48_23.csv   --read_times readTimes_Subscriber_2025_05_15_10_48_25.csv --nfs_publisher nfsLatency_publisher_2025-05-15_08-00-28.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-15_08-00-10.csv 
+  745  bg
+  746  cd ..
+  747  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  748  bg
+  749  vim analyze_data9.py 
+  750  ls -ltrh
+  751  vim cmpFolder.py 
+  752  ls -ltrh
+  753  mv cmpFolder.py cmpFolder3.py
+  754  vim cmpFolder.py
+  755  chmod +x cmpFolder.py 
+  756  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  757  vim cmpFolder.py 
+  758  meld cmpFolder.py cmpFolder3.py 
+  759  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  760  vim cmpFolder.py 
+  761  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  762  vim cmpFolder.py 
+  763  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  764  vim cmpFolder.py 
+  765  cp cmpFolder.py /tmp/
+  766  vim cmpFolder.py 
+  767  vim  -O cmpFolder.py 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 
+  768  vim cmpFolder.py 
+  769  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  770  vim cmpFolder.py 
+  771  vim  -O cmpFolder.py 1400_21000_Full-Field_Tier1_NoWaiting8_00/analyze_data.py 
+  772  ps -ef  | grep -i noise | awk '{ print $2 }' | xargs kill
+  773  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  774  ls -ltrh
+  775  vim 1400_21000_Full-Field_Tier1_NoWaiting8_00/readTimes_Subscriber_2025_05_15_10_48_25.csv 
+  776  vim 1400_21000_Full-Field_Tier1_NoWaiting8_00/writeTimes_publisher_2025_05_15_10_48_23.csv 
+  777  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  778  pwd
+  779  ls -ltrha
+  780  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  781  ls -ltrh
+  782  vim 1400_21000_Full-Field_Tier1_NoWaiting8_00/monitorSys_publisher_2025-05-15_08-00-28.csv 
+  783  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  784  python
+  785  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  786  python
+  787  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  788  cp cmpFolder.py cmpFolder10.py
+  789  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  790  fg
+  791  ./cmpFolder.py  --folder1 1400_21000_Full-Field_Tier1_NoWaiting8_00 --legend1 "No Noise"  --folder2 1400_21000_Full-Field_Tier1_NoWait_NOISE09_22 --legend2 "With Noise"
+  792  ./cmpFolder.py  --folder1 720_720_Full-Field_Tier1_Wait_Noise10_48/ --legend1 "Noise"  --folder2 720_720_Full-Field_Tier1_Wait_Noise13_01 --legend2 "No Noise"
+  793  ls -ltrh 720_720_Full-Field_Tier1_Wait_Noise10_48/
+  794  ./cmpFolder.py  --folder1 720_720_Full-Field_Tier1_Wait_Noise10_48 --legend1 "Noise"  --folder2 720_720_Full-Field_Tier1_Wait_No_Noise13_01 --legend2 "No Noise"
+  795  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=11 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  796  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=20 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  797  free -M
+  798  free -m
+  799  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=20 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  800  sudo systemctl stop dockerd 
+  801  sudo systemctl stop containerd
+  802  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=20 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  803  sudo systemctl stop dcoker
+  804  sudo systemctl stop docker
+  805  sudo systemctl stop docker.socket
+  806  sudo systemctl stop docker
+  807  sudo systemctl stop docker.socket
+  808  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=20 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  809  free -m
+  810  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=20 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  811  sudo systemctl stop sftp-server
+  812  sudo systemctl stop sftp
+  813  ps -eo pid,comm,%mem,rss --sort=-%mem | awk 'NR==1{print; next} NR<=20 {printf "%-8s %-20s %-8s %.2f MB\n", $1, $2, $3, $4/1024}'
+  814  free -m
+  815  cd
+  816  ls -ltrh
+  817  sudo yum install java-1.8.0-openjdk-devel
+  818  sudo yum install maven
+  819  scp -r scorpio@sbfscrpodev-lv3:/opt/scorpio/gmp ./
+  820  cd gmp/
+  821  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.452.b09-2.el9.x86_64
+  822  mvn -Dmaven.test.skip=true pax:run
+  823  mvn -Dmaven.test.skip=true install
+  824  mvn -Dmaven.test.skip=true pax:run
+  825  history
+  826  pwd
+  827  ssh -X cposcrpodev-lv1
+  828  cd testPlot/
+  829  ls -ltrh
+  830  cd FS
+  831  cd NFS
+  832  ls -ltrh
+  833  1440_1440_Full-Field_10_22
+  834  ls -ltrh
+  835  cd 1440_1440_Full-Field_10_22
+  836  ls -ltrh
+  837  /analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  838  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  839  ls -ltrh
+  840  vim analyze_data.py 
+  841  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  842  bg
+  843  ls -ltrh
+  844  vim analyze_data.py 
+  845  bg
+  846  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  847  vim analyze_data.py 
+  848  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  849  vim analyze_data.py 
+  850  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  851  vim analyze_data.py 
+  852  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  853  vim analyze_data.py 
+  854  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  855  vim analyze_data.py 
+  856  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  857  vim analyze_data.py 
+  858  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  859  vim analyze_data.py 
+  860  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  861  vim analyze_data.py 
+  862  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  863  vim analyze_data.py 
+  864  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  865  vim analyze_data.py 
+  866  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  867  vim analyze_data.py 
+  868  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  869  vim analyze_data.py 
+  870  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  871  bg
+  872  vim analyze_data.py 
+  873  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  874  bg
+  875  vim analyze_data.py 
+  876  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  877  vim analyze_data.py 
+  878  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  879  1
+  880  vim analyze_data.py 
+  881  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  882  vim analyze_data.py 
+  883  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  884  vim analyze_data.py 
+  885  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  886  vim analyze_data.py 
+  887  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  888  vim analyze_data.py 
+  889  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  890  vim analyze_data.py 
+  891  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  892  vim analyze_data.py 
+  893  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  894  vim analyze_data.py 
+  895  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  896  vim analyze_data.py 
+  897  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  898  vim analyze_data.py 
+  899  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  900  vim analyze_data.py 
+  901  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  902  vim analyze_data.py 
+  903  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  904  bg
+  905  vim analyze_data.py 
+  906  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  907  vim analyze_data.py 
+  908  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  909  vim analyze_data.py 
+  910  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  911  vim analyze_data.py 
+  912  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  913  ls -ltrh
+  914  vim analyze_data.py 
+  915  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  916  bg
+  917  vim analyze_data.py 
+  918  bg
+  919  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  920  ls -ltrh
+  921  cd ..
+  922  ./startAnalyze.sh 1400_21000_Full-Field_Tier1_NoWaiting17_54
+  923  ls -ltrh
+  924  cd 1400_21000_Full-Field_Tier1_NoWaiting17_54
+  925  ls -ltrh
+  926  cd bck/
+  927  ls -ltrh
+  928  mv writeTimesdetH* ../
+  929  ls -ltrh
+  930  cd ..
+  931  ls -ltrh
+  932  vim combine.py 
+  933  vim writeTimesdetH0_20250513T215450084.csv 
+  934  vim writeTimesdetH1_20250513T215450074.csv
+  935  vim writeTimesdetH5_20250513T215450850.csv
+  936  vim writeTimesdetH4_20250513T215450845.csv
+  937  vim writeTimesdetH2_20250513T215450080.csv
+  938  vim combine.py 
+  939  cat ../startAnalyze.sh 
+  940  python combine.py writeTimesdet writeTimes_publisher
+  941  vim combine.py 
+  942  python combine.py writeTimesdet writeTimes_publisher
+  943  ls -ltrh
+  944  head writeTimes_publisher_2025_05_14_10_34_30.csv
+  945  head writeTimesdetH0_20250513T215450084.csv
+  946  ls -ltrh
+  947  mv writeTimesdetH* bck/
+  948  ls -ltrh
+  949  grep -i NAT writeTimes_publisher_2025_05_14_10_34_30.csv
+  950  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-13_17-54-19.csv --mon_sender monitorSys_publisher_2025-05-13_17-54-37.csv --write_times writeTimes_publisher_2025_05_14_10_34_30.csv   --read_times readTimes_Subscriber_2025_05_14_10_27_35.csv --nfs_publisher nfsLatency_publisher_2025-05-13_17-54-37.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-13_17-54-19.csv 
+  951  pwd
+  952  vim -O nfsLatency_publisher_2025-05-13_17-54-37.csv  monitorSys_publisher_2025-05-13_17-54-37.csv 
+  953  tail writeTimes_publisher_2025_05_14_10_34_30.csv
+  954  vim -O nfsLatency_publisher_2025-05-13_17-54-37.csv  monitorSys_publisher_2025-05-13_17-54-37.csv 
+  955  vim -O monitorSys_subscriber_2025-05-13_17-54-19.csv nfsLatency_subscriber_2025-05-13_17-54-19.csv 
+  956  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-13_17-54-19.csv --mon_sender monitorSys_publisher_2025-05-13_17-54-37.csv --write_times writeTimes_publisher_2025_05_14_10_34_30.csv   --read_times readTimes_Subscriber_2025_05_14_10_27_35.csv --nfs_publisher nfsLatency_publisher_2025-05-13_17-54-37.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-13_17-54-19.csv 
+  957  ps -ef |grep python
+  958  ssh cposcrpodev-lv1
+  959  ssh cposcrpodev-lv1
+  960  ssh cposcrpodev-lv1
+  961  ssh cposcrpodev-lv1
+  962  ls -ltrh
+  963  cd testPlot/NFS/
+  964  ls
+  965  ls -ltrh
+  966  cd 1440_1440_Full-Field_10_22/
+  967  /analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  968  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-11_10-22-20.csv --mon_sender monitorSys_publisher_2025-05-11_10-22-38.csv --write_times writeTimes_publisher_2025_05_11_17_59_08.csv   --read_times readTimes_Subscriber_2025_05_11_17_59_08.csv --nfs_publisher nfsLatency_publisher_2025-05-11_10-22-38.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-11_10-22-20.csv
+  969  ls -ltrh
+  970  cd ..
+  971  ls -ltrh
+  972  cd 720_720_Full-Field_12_33_Noise_NoWaiting12_36
+  973  ./analyze_data.py --mon_receiver monitorSys_subscriber_2025-05-12_12-36-39.csv --mon_sender monitorSys_publisher_2025-05-12_12-36-57.csv --write_times writeTimes_publisher_2025_05_12_13_45_41.csv   --read_times readTimes_Subscriber_2025_05_12_13_45_42.csv --nfs_publisher nfsLatency_publisher_2025-05-12_12-36-57.csv  --nfs_subscriber nfsLatency_subscriber_2025-05-12_12-36-39.csv 
+  974  bg
+  975  ls -ltrh
+  976  cd test/
+  977  ls
+  978  cd ..
+  979  cd bck/
+  980  ls
+  981  wc readTimes_detH0_20250512T163650507.csv 
+  982  tail readTimes_detH0_20250512T163650507.csv 
+  983  head readTimes_detH0_20250512T163650507.csv 
+  984  head writeTimesdetH5_20250512T163710332.csv ; tail writeTimesdetH5_20250512T163710332.csv
+  985  wc writeTimesdetH5_20250512T163710332.csv
+  986  df -h
+  987  cat /etc/exports
+  988  mount -t nfs
+  989  mount -t nfs,nfs3
+  990  nfsstat -m
+  991  ls -ltrh
+  992  cd ..
+  993  ls -ltrh
+  994  cd -
+  995  ls -lthr
+  996  head -n 30 writeTimesdetH5_20250512T163710332.csv
+  997  cd ..
+  998  cat /etc/fstab 
+  999  ls -ltrh
+ 1000  top
+ 1001  free -m
+ 1002  ps -ef | grep python
+ 1003  ls -ltrh
+ 1004  cd lv3_cpolv1/
+ 1005  ls
+ 1006  cd ActiveMQ/
+ 1007  ls
+ 1008  cd 1400_21000_Full-Field_Img/
+ 1009  ls -ltrh
+ 1010  vim monitorSys_activemq_2025-05-20_12-11-38.csv 
+ 1011  cat monitorSys_activemq_2025-05-20_12-11-38.csv  | cut -d';' -f 1,2,3
+ 1012  cat monitorSys_activemq_2025-05-20_12-11-38.csv  | cut -d';' -f 1,2,3 | more
+ 1013  ls -ltrh
+ 1014  ./monitorSystem.sh activeMQ
+ 1015  ls -ltrh
+ 1016  fg
+ 1017  ps -ef | grep mon
+ 1018  kill 17308 19218
+ 1019  ls -ltrh
+ 1020  cd ..
+ 1021  mv 1400_21000_Full-Field_Img 1400_10000_Full-Field_Img_compressed_sync
+ 1022  cp -r 1400_10000_Full-Field_Img_compressed_sync 3000_21000_Full-Field_Img_compressed_sync
+ 1023  cd 3000_21000_Full-Field_Img_compressed_sync
+ 1024  ls -ltrh
+ 1025  rm *.csv
+ 1026  ls -ltrh
+ 1027  ./monitorSystem.sh activeMQ
+ 1028  ls -ltrh
+ 1029  fg
+ 1030  ps -ef | grep -i mon
+ 1031  kill -9 274318 275017 
+ 1032  ls -ltrh
+ 1033  rm *.csv
+ 1034  ./monitorSystem.sh activeMQ
+ 1035  la -lreh
+ 1036  ls -ltrh
+ 1037  cd ..
+ 1038  ls -ltrh
+ 1039  mkdir 09_43
+ 1040  rmdir 09_43
+ 1041  cp -r 3000_21000_Full-Field_Img_compressed_sync/ 09_43
+ 1042  cd 09_43/
+ 1043  ls -ltrh
+ 1044  rm monitorSys_activeMQ_2025-05-22_17-56-26.csv 
+ 1045  ./monitorSystem.sh activeMQ
+ 1046  ls -ltrh
+ 1047  rm monitorSys_activeMQ_2025-05-23_09-49-41.csv 
+ 1048  ./monitorSystem.sh activeMQ > /dev/null &
+ 1049  ./monitor_pid.sh pax:run > /dev/null 2>&1 &
+ 1050  ./monitor_pid org.apache.felix.main.Main > /dev/null 
+ 1051  ls -ltrh
+ 1052  ./monitor_pid.sh org.apache.felix.main.Main > /dev/null 
+ 1053  ./monitor_pid.sh org.apache.felix.main.Main > /dev/null *
+ 1054  ./monitor_pid.sh org.apache.felix.main.Main > /dev/null &
+ 1055  ls -ltrh
+ 1056  ps -ef | grep -i monitor_pid
+ 1057  ls -ltrh
+ 1058  rm monitor_org.apache.felix.main.Main_2025-05-23_09-50-45.csv
+ 1059  ls -ltrh
+ 1060  pwd
+ 1061  fg
+ 1062  cd ..
+ 1063  ls -ltrh
+ 1064  mv 09_43 /opt/scorpio/lv3_cpolv1/ActiveMQ/2000_10000_Full-Field_Img_compressed_sync_NoWaiting
+ 1065  ls -ltrh
+ 1066  cp -r 2000_10000_Full-Field_Img_compressed_sync_NoWaiting 720_720_Full-Field_Img_compressed_sync_Waiting
+ 1067  cd 720_720_Full-Field_Img_compressed_sync_Waiting
+ 1068  cd ..
+ 1069  mv 720_720_Full-Field_Img_compressed_sync_Waiting 360_360_Full-Field_Img_compressed_sync_Waiting
+ 1070  cd 360_360_Full-Field_Img_compressed_sync_Waiting
+ 1071  ./monitorSystem.sh activeMQ > /dev/null &
+ 1072  ./monitor_pid.sh org.apache.felix.main.Main > /dev/null &
+ 1073  free -m
+ 1074  ls -ltrh
+ 1075  cd ..
+ 1076  ls -ltrh
+ 1077  history | grep analyze9
+ 1078  \
+ 1079  history | grep ls | grep awk
+ 1080  top
+ 1081  pwd
+ 1082  cd ../../gmp/
+ 1083  grep -r prefetchPolicy *
+ 1084  pwd
+ 1085  ls
+ 1086  grep -r prefetchPolicy *
+ 1087  ps -ef | grep -i mon
+ 1088  ls -ltrh
+ 1089  history | grep cmpActiveMQvsNFS4.py
+ 1090  pwd
+ 1091  history > ~hist6.txt
