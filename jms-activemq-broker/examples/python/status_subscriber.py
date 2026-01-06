@@ -35,6 +35,8 @@ class ByteReader:
         self._idx += count
         return chunk
 
+    #b'\x00\x00\x0bgpi:status1\x00\x00\x00\x00\x00\x00\x01\x9b\x8e\x06#D
+
     def read_ubyte(self) -> int:
         return self._read(1)[0]
 
@@ -83,7 +85,8 @@ def decode_modified_utf8(data: bytes) -> str:
 
 
 def parse_status_item(data: bytes) -> Optional[StatusItem]:
-
+    # Payload format mirrors StatusSerializerVisitor, StatusItemParser, and
+    # StatusParserBase in giapi-jms-util.
     if not data:
         return None
     r = ByteReader(data)
@@ -151,12 +154,14 @@ class StatusListener(stomp.ConnectionListener):
 
     def on_message(self, frame) -> None:
         try:
+            print(f"received: {frame}")
             body = frame.body
             if isinstance(body, str):
                 body = body.encode("latin-1", errors="replace")
             item = parse_status_item(body)
+            print(f"item: {frame}")
             if item is None:
-                print("received: <empty>")
+                print(f"received None: {item}")
                 return
             if item.alarm_severity:
                 print(

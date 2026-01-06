@@ -22,7 +22,7 @@ public class ConfigDefaults {
     private static final int BROKER_STOMP_PORT = 61613;
 
     static final String BROKER_URL = "tcp://0.0.0.0:" + BROKER_PORT;
-    static final String BROKER_STOMP_URL = "stomp://0.0.0.0:" + BROKER_STOMP_PORT;
+    static final String BROKER_STOMP_URL = "stomp+nio://0.0.0.0:" + BROKER_STOMP_PORT;
     static final String BROKER_NAME = "gmp";
     // Set to true to enable the broker's JMX usage
     static final boolean BROKER_USE_JMX = true;
