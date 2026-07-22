@@ -176,6 +176,43 @@ button.ghost {
   font-size: 0.95rem;
 }
 
+.payload .gear-row {
+  align-items: center;
+  gap: 12px;
+}
+
+.gear-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gear {
+  width: 90px;
+  height: 90px;
+  transition: transform 250ms ease-out;
+  transform-origin: 50% 50%;
+}
+
+.gear svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.gear-img {
+  border-radius: 50%;
+  background: #fff8ef;
+  padding: 8px;
+  box-shadow: inset 0 0 0 1px #f0e1d4;
+}
+
+.gear-readout {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .payload span {
   color: var(--muted);
 }

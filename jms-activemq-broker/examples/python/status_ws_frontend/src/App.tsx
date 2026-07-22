@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import gearSvg from "./assets/gear.svg";
 
 type StatusPayload = {
   name: string;
@@ -27,6 +28,26 @@ const buildWsUrl = (host: string, port: string, path: string) => {
 
 const formatTimestamp = (value: number) =>
   new Date(value).toLocaleTimeString();
+
+const toNumber = (value: StatusPayload["value"]) => {
+  if (typeof value === "number") {
+    return value;
+  }
+  if (typeof value === "string") {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  return null;
+};
+
+const toRotation = (value: StatusPayload["value"]) => {
+  const num = toNumber(value);
+  if (num === null) {
+    return 0;
+  }
+  const clamped = Math.max(0, Math.min(1000, num));
+  return (clamped / 1000) * 360;
+};
 
 const makeId = () =>
   typeof crypto !== "undefined" && "randomUUID" in crypto
@@ -192,6 +213,57 @@ export default function App() {
                   </strong>
                 </div>
               )}
+              <div className="gear-row">
+                <span>Position</span>
+                <div className="gear-wrap">
+                  <div
+                    className="gear"
+                    style={{ transform: `rotate(${toRotation(lastPayload.value)}deg)` }}
+                  >
+                    <svg viewBox="0 0 200 200" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="gearFill" x1="0" x2="1">
+                          <stop offset="0%" stopColor="#d94b2b" />
+                          <stop offset="100%" stopColor="#f2a14e" />
+                        </linearGradient>
+                      </defs>
+                      <g>
+                        <circle cx="100" cy="100" r="70" fill="url(#gearFill)" />
+                        <circle cx="100" cy="100" r="40" fill="#fff8ef" />
+                        {Array.from({ length: 12 }).map((_, idx) => (
+                          <rect
+                            key={idx}
+                            x="92"
+                            y="10"
+                            width="16"
+                            height="28"
+                            rx="6"
+                            fill="#c03a1b"
+                            transform={`rotate(${idx * 30} 100 100)`}
+                          />
+                        ))}
+                      </g>
+                    </svg>
+                  </div>
+                  <div className="gear-readout">
+                    {toNumber(lastPayload.value) ?? "--"} / 1000
+                  </div>
+                </div>
+              </div>
+              <div className="gear-row">
+                <span>Position (SVG file)</span>
+                <div className="gear-wrap">
+                  <img
+                    className="gear gear-img"
+                    src={gearSvg}
+                    alt="Gear"
+                    style={{ transform: `rotate(${toRotation(lastPayload.value)}deg)` }}
+                  />
+                  <div className="gear-readout">
+                    {toNumber(lastPayload.value) ?? "--"} / 1000
+                  </div>
+                </div>
+              </div>
             </div>
           ) : (
             <p className="empty">No status updates yet.</p>
